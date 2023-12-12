@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -7.289
+TNS   : -394.459
+
+Type  : Slow 1200mV 85C Model Setup 'MMA7660_driver:U_MMA7660_driver|clk_400khz'
+Slack : -4.086
+TNS   : -336.107
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.340
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'MMA7660_driver:U_MMA7660_driver|clk_400khz'
+Slack : 0.361
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -163.596
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MMA7660_driver:U_MMA7660_driver|clk_400khz'
+Slack : -1.487
+TNS   : -172.492
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -6.761
+TNS   : -368.454
+
+Type  : Slow 1200mV 0C Model Setup 'MMA7660_driver:U_MMA7660_driver|clk_400khz'
+Slack : -3.875
+TNS   : -315.424
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.304
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'MMA7660_driver:U_MMA7660_driver|clk_400khz'
+Slack : 0.324
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -163.596
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MMA7660_driver:U_MMA7660_driver|clk_400khz'
+Slack : -1.487
+TNS   : -172.492
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -2.076
+TNS   : -92.907
+
+Type  : Fast 1200mV 0C Model Setup 'MMA7660_driver:U_MMA7660_driver|clk_400khz'
+Slack : -1.094
+TNS   : -68.881
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.143
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'MMA7660_driver:U_MMA7660_driver|clk_400khz'
+Slack : 0.151
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -114.378
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MMA7660_driver:U_MMA7660_driver|clk_400khz'
+Slack : -1.000
+TNS   : -116.000
+
+------------------------------------------------------------

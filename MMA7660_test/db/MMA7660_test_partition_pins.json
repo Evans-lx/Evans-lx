@@ -1,0 +1,41 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "i2c_scl",
+					"strict" : false
+				},
+				{
+					"name" : "oled_rst",
+					"strict" : false
+				},
+				{
+					"name" : "oled_dcn",
+					"strict" : false
+				},
+				{
+					"name" : "oled_clk",
+					"strict" : false
+				},
+				{
+					"name" : "oled_dat",
+					"strict" : false
+				},
+				{
+					"name" : "i2c_sda",
+					"strict" : false
+				},
+				{
+					"name" : "rst_n",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
