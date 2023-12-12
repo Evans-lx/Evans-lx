@@ -1,0 +1,147 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/WORK/new/MMA7660_test/simulation/modelsim
+vbin_to_bcd
+Z1 !s110 1681871173
+!i10b 1
+!s100 PUK06_lBK`FG9;`Hgm0VO3
+IIC8TA@7aHG48O7k`NTe2<1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1681282034
+8D:/WORK/new/MMA7660_test/bin_to_bcd.v
+FD:/WORK/new/MMA7660_test/bin_to_bcd.v
+Z3 L0 18
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1681871172.000000
+!s107 D:/WORK/new/MMA7660_test/bin_to_bcd.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/WORK/new/MMA7660_test|D:/WORK/new/MMA7660_test/bin_to_bcd.v|
+!i113 1
+Z6 o-vlog01compat -work work
+Z7 !s92 -vlog01compat -work work +incdir+D:/WORK/new/MMA7660_test
+Z8 tCvgOpt 0
+vCalculate
+R1
+!i10b 1
+!s100 RaW?nJm9;_bZhnTS`6iH]1
+IzP6_gibFMdSQ6dg4HLo>_3
+R2
+R0
+w1681867649
+8D:/WORK/new/MMA7660_test/Calculate.v
+FD:/WORK/new/MMA7660_test/Calculate.v
+R3
+R4
+r1
+!s85 0
+31
+Z9 !s108 1681871173.000000
+!s107 D:/WORK/new/MMA7660_test/Calculate.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/WORK/new/MMA7660_test|D:/WORK/new/MMA7660_test/Calculate.v|
+!i113 1
+R6
+R7
+R8
+n@calculate
+vMMA7660_driver
+Z10 !s110 1681871172
+!i10b 1
+!s100 E@3IFdn`Zb^HAaQ8afk>@3
+ID28Ch_VZZ0JILoCc40>7j0
+R2
+R0
+w1681869329
+8D:/WORK/new/MMA7660_test/MMA7660_driver.v
+FD:/WORK/new/MMA7660_test/MMA7660_driver.v
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/WORK/new/MMA7660_test/MMA7660_driver.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/WORK/new/MMA7660_test|D:/WORK/new/MMA7660_test/MMA7660_driver.v|
+!i113 1
+R6
+R7
+R8
+n@m@m@a7660_driver
+vMMA7660_test
+R10
+!i10b 1
+!s100 KJlQhX7^BHdIEY9E;5A351
+IhGA^<]E@CbD6iR5?GbL=j2
+R2
+R0
+w1681277658
+8D:/WORK/new/MMA7660_test/MMA7660_test.v
+FD:/WORK/new/MMA7660_test/MMA7660_test.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/WORK/new/MMA7660_test/MMA7660_test.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/WORK/new/MMA7660_test|D:/WORK/new/MMA7660_test/MMA7660_test.v|
+!i113 1
+R6
+R7
+R8
+n@m@m@a7660_test
+vOLED_driver
+R10
+!i10b 1
+!s100 cGVMeQ9MSJN2cGdgJ0BBk3
+IglHB3M^PENid8OiafMRB=3
+R2
+R0
+w1681868928
+8D:/WORK/new/MMA7660_test/OLED_driver.v
+FD:/WORK/new/MMA7660_test/OLED_driver.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/WORK/new/MMA7660_test/OLED_driver.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/WORK/new/MMA7660_test|D:/WORK/new/MMA7660_test/OLED_driver.v|
+!i113 1
+R6
+R7
+R8
+n@o@l@e@d_driver
+vtb_MMA7660_test
+R1
+!i10b 1
+!s100 JnDEP65f3XCICL[fM>K7o3
+I969>d;^@C<^Kaz]o=n1e^3
+R2
+R0
+w1681364180
+8D:/WORK/new/MMA7660_test/simulation/modelsim/MMA7660_test.vt
+FD:/WORK/new/MMA7660_test/simulation/modelsim/MMA7660_test.vt
+L0 28
+R4
+r1
+!s85 0
+31
+R9
+!s107 D:/WORK/new/MMA7660_test/simulation/modelsim/MMA7660_test.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/WORK/new/MMA7660_test/simulation/modelsim|D:/WORK/new/MMA7660_test/simulation/modelsim/MMA7660_test.vt|
+!i113 1
+R6
+!s92 -vlog01compat -work work +incdir+D:/WORK/new/MMA7660_test/simulation/modelsim
+R8
+ntb_@m@m@a7660_test

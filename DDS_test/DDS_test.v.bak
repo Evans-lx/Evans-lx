@@ -1,0 +1,31 @@
+module DDS_test
+(
+input clk_in,  //clock in
+input rst_n_in,  //reset, active low
+input dds_en_in,  //dds work enable
+input [23:0] f_increment,  //frequency increment
+input [23:0] p_increment,  //phase increment
+output dac_clk_out,  //clock out
+output [9:0] dac_data_out  //data out
+);
+
+reg [23:0] phase_accumulator;
+wire [7:0] phase;
+//wire [9:0] dac_data_out;
+assign dac_clk_out = clk_in;
+
+//next_phase = phase_accumulator + f_increment;
+always @(posedge clk_in or negedge rst_n_in)
+begin
+	if(!rst_n_in) phase_accumulator <= 23'b0;
+	else if(dds_en_in) phase_accumulator <= phase_accumulator + f_increment;
+end
+
+assign phase = phase_accumulator[23:16] + p_increment; // phase is the high 8 bits
+lookup_table lookup_table_uut
+(
+.phase(phase), 
+.dac_data_out(dac_data_out)
+);
+
+endmodule

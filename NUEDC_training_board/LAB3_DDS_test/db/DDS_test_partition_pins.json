@@ -1,0 +1,89 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "dac_clk_out",
+					"strict" : false
+				},
+				{
+					"name" : "dac_data_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "dac_data_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dac_data_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "dac_data_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "dac_data_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "dac_data_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "dac_data_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "dac_data_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "dac_data_out[8]",
+					"strict" : false
+				},
+				{
+					"name" : "dac_data_out[9]",
+					"strict" : false
+				},
+				{
+					"name" : "oled_rst",
+					"strict" : false
+				},
+				{
+					"name" : "oled_dcn",
+					"strict" : false
+				},
+				{
+					"name" : "oled_clk",
+					"strict" : false
+				},
+				{
+					"name" : "oled_dat",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst_n",
+					"strict" : false
+				},
+				{
+					"name" : "key_o",
+					"strict" : false
+				},
+				{
+					"name" : "key_b",
+					"strict" : false
+				},
+				{
+					"name" : "key_a",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

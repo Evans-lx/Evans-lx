@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Thu Mar 02 16:39:10 2023
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : EEPROM_test
+Top-level Entity Name : EEPROM_test
+Family : MAX 10
+Device : 10M08SAM153C8G
+Power Models : Final
+Total Thermal Power Dissipation : 115.24 mW
+Core Dynamic Thermal Power Dissipation : 0.00 mW
+Core Static Thermal Power Dissipation : 110.73 mW
+I/O Thermal Power Dissipation : 4.51 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

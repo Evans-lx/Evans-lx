@@ -1,0 +1,32 @@
+module DDS_generator
+(
+	input clk_in,  //时钟信号
+	input rst_n_in,  //重置信号
+	input					key_a,		//旋转编码器EC11的A脚 
+	input					key_b,		//旋转编码器EC11的B脚  
+	//input [23:0] f_increment,  //频率增量
+	//input [23:0] p_increment,  //相位增量
+	output dac_clk_out,  //dac时钟信号
+	output [9:0] dac_data_out  //dac数据
+);
+
+//reg [23:0] phase_accumulator;
+wire [7:0] phase;
+
+//wire [9:0] dac_data_out;
+assign dac_clk_out = clk_in;
+
+//next_phase = phase_accumulator + f_increment;
+always @(posedge clk_in or negedge rst_n_in)
+	begin
+		if(!rst_n_in) 
+			phase_accumulator <= 23'b0;		
+	end
+
+assign phase = phase_accumulator + f_increment; //相位是高8位
+lookup_table lookup_table_uut
+(
+	.phase(phase), 
+	.dac_data_out(dac_data_out)
+);
+endmodule

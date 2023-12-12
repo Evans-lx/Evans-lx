@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at OLED_driver.v(18): object "CMD" differs only in case from object "cmd" in the same scope File: E:/intelFPGA_lite/18.1/OLED_test/OLED_driver.v Line: 18

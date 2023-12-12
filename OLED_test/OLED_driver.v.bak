@@ -1,0 +1,153 @@
+module OLED12832 (
+						input clk, //12MHz
+						input rst_n, 
+						input [15:0] oled1,
+						input [15:0] oled2,
+						input [15:0] oled3, 
+
+						output reg oled_csn, 
+						output reg oled_rst, 
+						output reg oled_dcn, 
+						output reg oled_clk, 
+						output reg oled_dat 
+						);
+
+	localparam INIT_DEPTH = 16'd25; 
+	localparam IDLE = 6'h1, MAIN = 6'h2, INIT = 6'h4, SCAN = 6'h8, WRITE = 6'h10, DELAY = 6'h20;
+	localparam HIGH = 1'b1, LOW = 1'b0;
+	localparam DATA = 1'b1, CMD = 1'b0;
+
+	reg [7:0] cmd [24:0];
+	reg [39:0] mem [122:0];
+	reg [7:0] y_p, x_ph, x_pl;
+	reg [(8*21-1):0] char;
+	reg [7:0] num, char_reg; //
+	reg [4:0] cnt_main, cnt_init, cnt_scan, cnt_write;
+	reg [15:0] num_delay, cnt_delay, cnt;
+	reg [5:0] state, state_back;
+
+	always@(posedge clk or negedge rst_n) 
+	begin
+		if(!rst_n) begin
+			cnt_main <= 1'b0; 
+			cnt_init <= 1'b0; 
+			cnt_scan <= 1'b0; 
+			cnt_write <= 1'b0;
+			y_p <= 1'b0; 
+			x_ph <= 1'b0; 
+			x_pl <= 1'b0;
+			num <= 1'b0; 
+			char <= 1'b0; 
+			char_reg <= 1'b0;
+			num_delay <= 16'd5; 
+			cnt_delay <= 1'b0; 
+			cnt <= 1'b0;
+			oled_csn <= HIGH; 
+			oled_rst <= HIGH; 
+			oled_dcn <= CMD; 
+			oled_clk <= HIGH; 
+			oled_dat <= LOW;
+			state <= IDLE; 
+			state_back <= IDLE;
+		end else begin
+			case(state)
+				IDLE:begin
+						cnt_main <= 1'b0; cnt_init <= 1'b0; cnt_scan <= 1'b0; cnt_write <= 1'b0;
+						y_p <= 1'b0; x_ph <= 1'b0; x_pl <= 1'b0;
+						num <= 1'b0; char <= 1'b0; char_reg <= 1'b0;
+						num_delay <= 16'd5; cnt_delay <= 1'b0; cnt <= 1'b0;
+						oled_csn <= HIGH; oled_rst <= HIGH; oled_dcn <= CMD; oled_clk <= HIGH; oled_dat <= LOW;
+						state <= MAIN; state_back <= MAIN;
+					end
+			MAIN:begin
+					if(cnt_main >= 5'd8) 
+						cnt_main <= 5'd5;
+					else 
+						cnt_main <= cnt_main + 1'b1;
+					case(cnt_main) //MAIN״̬
+						5'd0: begin state <= INIT; end
+						5'd1: begin y_p <= 8'hb0; x_ph <= 8'h10; x_pl <= 8'h00; num <= 5'd16; char <= "Time ";state <= SCAN; end
+						5'd2: begin y_p <= 8'hb1; x_ph <= 8'h10; x_pl <= 8'h00; num <= 5'd16; char <= " ";state <= SCAN; end
+						5'd3: begin y_p <= 8'hb2; x_ph <= 8'h10; x_pl <= 8'h00; num <= 5'd16; char <= "Temperature ";state <= SCAN; end
+						5'd4: begin y_p <= 8'hb3; x_ph <= 8'h10; x_pl <= 8'h00; num <= 5'd16; char <= " ";state <= SCAN; end
+						5'd5: begin y_p <= 8'hb0; x_ph <= 8'h15; x_pl <= 8'h00; num <= 5'd 1; char <= " "; state <= SCAN; end
+						5'd6: begin y_p <= 8'hb1; x_ph <= 8'h15; x_pl <= 8'h00; num <= 5'd 5; char <= {oled2,":",oled3}; state <= SCAN; end
+						5'd7: begin y_p <= 8'hb2; x_ph <= 8'h15; x_pl <= 8'h00; num <= 5'd 1; char <= " "; state <= SCAN; end
+						5'd8: begin y_p <= 8'hb3; x_ph <= 8'h15; x_pl <= 8'h00; num <= 5'd 2; char <= oled1; state <= SCAN; end
+						default: state <= IDLE;
+					endcase
+				end
+			INIT:begin 
+					case(cnt_init)
+						5'd0: begin oled_rst <= LOW; cnt_init <= cnt_init + 1'b1; end 
+						5'd1: begin num_delay <= 16'd25000; state <= DELAY; state_back <= INIT; cnt_init <= cnt_init + 1'b1; end 
+						5'd2: begin oled_rst <= HIGH; cnt_init <= cnt_init + 1'b1; end
+						5'd3: begin num_delay <= 16'd25000; state <= DELAY; state_back <= INIT; cnt_init <= cnt_init + 1'b1; end 
+						5'd4: begin	if(cnt>=INIT_DEPTH) 
+											begin cnt <= 1'b0;
+												cnt_init <= cnt_init + 1'b1;
+											end else begin
+												cnt <= cnt + 1'b1; num_delay <= 16'd5;
+												oled_dcn <= CMD; char_reg <= cmd[cnt]; state <= WRITE; state_back <= INIT;
+										end
+								end
+						5'd5: begin cnt_init <= 1'b0; state <= MAIN; end 
+						default: state <= IDLE;
+					endcase
+				end
+			SCAN:begin 
+					if(cnt_scan == 5'd11) 
+						begin
+							if(num) 
+								cnt_scan <= 5'd3;
+							else 
+								cnt_scan <= cnt_scan + 1'b1;
+							end 
+						else if(cnt_scan == 5'd12) 
+							cnt_scan <= 1'b0;
+						else 
+							cnt_scan <= cnt_scan + 1'b1;
+					case(cnt_scan)
+						5'd 0: begin oled_dcn <= CMD; char_reg <= y_p; state <= WRITE; state_back <= SCAN; end 
+						5'd 1: begin oled_dcn <= CMD; char_reg <= x_pl; state <= WRITE; state_back <= SCAN; end 
+						5'd 2: begin oled_dcn <= CMD; char_reg <= x_ph; state <= WRITE; state_back <= SCAN; end 
+						5'd 3: begin num <= num - 1'b1;end
+						5'd 4: begin oled_dcn <= DATA; char_reg <= 8'h00; state <= WRITE; state_back <= SCAN; end 
+						5'd 5: begin oled_dcn <= DATA; char_reg <= 8'h00; state <= WRITE; state_back <= SCAN; end 
+						5'd 6: begin oled_dcn <= DATA; char_reg <= 8'h00; state <= WRITE; state_back <= SCAN; end 
+						5'd 7: begin oled_dcn <= DATA; char_reg <= mem[char[(num*8)+:8]][39:32]; state <= WRITE; state_back <= SCAN; end
+						5'd 8: begin oled_dcn <= DATA; char_reg <= mem[char[(num*8)+:8]][31:24]; state <= WRITE; state_back <= SCAN; end
+						5'd 9: begin oled_dcn <= DATA; char_reg <= mem[char[(num*8)+:8]][23:16]; state <= WRITE; state_back <= SCAN; end
+						5'd10: begin oled_dcn <= DATA; char_reg <= mem[char[(num*8)+:8]][15: 8]; state <= WRITE; state_back <= SCAN; end
+						5'd11: begin oled_dcn <= DATA; char_reg <= mem[char[(num*8)+:8]][ 7: 0]; state <= WRITE; state_back <= SCAN; end
+						5'd12: begin state <= MAIN; end
+						default: state <= IDLE;
+					endcase
+			end
+			WRITE:begin 
+			if(cnt_write >= 5'd17) 
+				cnt_write <= 1'b0;
+			else 
+				cnt_write <= cnt_write + 1'b1;
+			case(cnt_write)
+				5'd 0: begin oled_csn <= LOW; end 
+				5'd 1: begin oled_clk <= LOW; oled_dat <= char_reg[7]; end
+				5'd 2: begin oled_clk <= HIGH; end
+				5'd 3: begin oled_clk <= LOW; oled_dat <= char_reg[6]; end
+				5'd 4: begin oled_clk <= HIGH; end
+				5'd 5: begin oled_clk <= LOW; oled_dat <= char_reg[5]; end
+				5'd 6: begin oled_clk <= HIGH; end
+				5'd 7: begin oled_clk <= LOW; oled_dat <= char_reg[4]; end
+				5'd 8: begin oled_clk <= HIGH; end
+				5'd 9: begin oled_clk <= LOW; oled_dat <= char_reg[3]; end
+				5'd10: begin oled_clk <= HIGH; end
+				5'd11: begin oled_clk <= LOW; oled_dat <= char_reg[2]; end
+				5'd12: begin oled_clk <= HIGH; end
+				5'd13: begin oled_clk <= LOW; oled_dat <= char_reg[1]; end
+				5'd14: begin oled_clk <= HIGH; end
+				5'd15: begin oled_clk <= LOW; oled_dat <= char_reg[0]; end 
+				5'd16: begin oled_clk <= HIGH; end
+				5'd17: begin oled_csn <= HIGH; state <= DELAY; end 
+				default: state <= IDLE;
+			endcase
+	end

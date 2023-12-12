@@ -1,0 +1,95 @@
+# Reading D:/TOOL/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do DDS_test_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying D:/TOOL/intelFPGA/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+D:/WORK/new/DDS_test {D:/WORK/new/DDS_test/DDS_test.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:55:18 on Apr 21,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/WORK/new/DDS_test" D:/WORK/new/DDS_test/DDS_test.v 
+# -- Compiling module DDS_test
+# 
+# Top level modules:
+# 	DDS_test
+# End time: 15:55:18 on Apr 21,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/WORK/new/DDS_test {D:/WORK/new/DDS_test/lookup_table.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:55:18 on Apr 21,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/WORK/new/DDS_test" D:/WORK/new/DDS_test/lookup_table.v 
+# -- Compiling module lookup_table
+# 
+# Top level modules:
+# 	lookup_table
+# End time: 15:55:18 on Apr 21,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/WORK/new/DDS_test {D:/WORK/new/DDS_test/sine_table.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:55:18 on Apr 21,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/WORK/new/DDS_test" D:/WORK/new/DDS_test/sine_table.v 
+# -- Compiling module sine_table
+# 
+# Top level modules:
+# 	sine_table
+# End time: 15:55:18 on Apr 21,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/WORK/new/DDS_test {D:/WORK/new/DDS_test/Decoder.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:55:18 on Apr 21,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/WORK/new/DDS_test" D:/WORK/new/DDS_test/Decoder.v 
+# -- Compiling module Decoder
+# 
+# Top level modules:
+# 	Decoder
+# End time: 15:55:18 on Apr 21,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/WORK/new/DDS_test {D:/WORK/new/DDS_test/Encoder.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:55:18 on Apr 21,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/WORK/new/DDS_test" D:/WORK/new/DDS_test/Encoder.v 
+# -- Compiling module Encoder
+# 
+# Top level modules:
+# 	Encoder
+# End time: 15:55:18 on Apr 21,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/WORK/new/DDS_test {D:/WORK/new/DDS_test/DDS_generator.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:55:18 on Apr 21,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/WORK/new/DDS_test" D:/WORK/new/DDS_test/DDS_generator.v 
+# -- Compiling module DDS_generator
+# 
+# Top level modules:
+# 	DDS_generator
+# End time: 15:55:18 on Apr 21,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/WORK/new/DDS_test/output_files {D:/WORK/new/DDS_test/output_files/Debounce.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:55:18 on Apr 21,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/WORK/new/DDS_test/output_files" D:/WORK/new/DDS_test/output_files/Debounce.v 
+# -- Compiling module Debounce
+# 
+# Top level modules:
+# 	Debounce
+# End time: 15:55:18 on Apr 21,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/WORK/new/DDS_test {D:/WORK/new/DDS_test/OLED_driver.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:55:18 on Apr 21,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/WORK/new/DDS_test" D:/WORK/new/DDS_test/OLED_driver.v 
+# -- Compiling module OLED_driver
+# ** Error: D:/WORK/new/DDS_test/OLED_driver.v(80): A begin/end block was found with an empty body.  This is permitted in SystemVerilog, but not permitted in Verilog.  Please look for any stray semicolons.
+# End time: 15:55:18 on Apr 21,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: D:/TOOL/intelFPGA/18.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./DDS_test_run_msim_rtl_verilog.do line 15
+# D:/TOOL/intelFPGA/18.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -vlog01compat -work work +incdir+D:/WORK/new/DDS_test {D:/WORK/new/DDS_test/OLED_driver.v}"

@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'AT24C02_Driver:U_AT24C02_Driver|clk_400khz'
+Slack : -4.331
+TNS   : -219.714
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -2.974
+TNS   : -20.156
+
+Type  : Slow 1200mV 85C Model Hold 'AT24C02_Driver:U_AT24C02_Driver|clk_400khz'
+Slack : 0.342
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.478
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -19.357
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'AT24C02_Driver:U_AT24C02_Driver|clk_400khz'
+Slack : -1.487
+TNS   : -127.882
+
+Type  : Slow 1200mV 0C Model Setup 'AT24C02_Driver:U_AT24C02_Driver|clk_400khz'
+Slack : -4.077
+TNS   : -202.930
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -2.771
+TNS   : -17.711
+
+Type  : Slow 1200mV 0C Model Hold 'AT24C02_Driver:U_AT24C02_Driver|clk_400khz'
+Slack : 0.305
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.454
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -19.357
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'AT24C02_Driver:U_AT24C02_Driver|clk_400khz'
+Slack : -1.487
+TNS   : -127.882
+
+Type  : Fast 1200mV 0C Model Setup 'AT24C02_Driver:U_AT24C02_Driver|clk_400khz'
+Slack : -1.027
+TNS   : -38.266
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -0.569
+TNS   : -1.172
+
+Type  : Fast 1200mV 0C Model Hold 'AT24C02_Driver:U_AT24C02_Driver|clk_400khz'
+Slack : 0.144
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.173
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -14.384
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'AT24C02_Driver:U_AT24C02_Driver|clk_400khz'
+Slack : -1.000
+TNS   : -86.000
+
+------------------------------------------------------------

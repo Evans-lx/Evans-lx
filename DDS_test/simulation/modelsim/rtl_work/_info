@@ -1,0 +1,169 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/WORK/new/DDS_test/simulation/modelsim
+vDDS_generator
+Z1 !s110 1682063718
+!i10b 1
+!s100 0b[P>SkJ]jUS8hUkizb[43
+I0R3CB0]A>fSeW32zhGTeI1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1680767772
+8D:/WORK/new/DDS_test/DDS_generator.v
+FD:/WORK/new/DDS_test/DDS_generator.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1682063718.000000
+!s107 D:/WORK/new/DDS_test/DDS_generator.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/WORK/new/DDS_test|D:/WORK/new/DDS_test/DDS_generator.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+D:/WORK/new/DDS_test
+Z7 tCvgOpt 0
+n@d@d@s_generator
+vDDS_test
+R1
+!i10b 1
+!s100 J4z@gC7L[D78C=ZP1zB]:0
+IQKab?ALLPhcLETb`D;hFE1
+R2
+R0
+w1680773044
+8D:/WORK/new/DDS_test/DDS_test.v
+FD:/WORK/new/DDS_test/DDS_test.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/WORK/new/DDS_test/DDS_test.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/WORK/new/DDS_test|D:/WORK/new/DDS_test/DDS_test.v|
+!i113 1
+R5
+R6
+R7
+n@d@d@s_test
+vDebounce
+R1
+!i10b 1
+!s100 ?I0HJmGTaB^UnNA@a7Oa^3
+I[@M3d2CD?V7>SfL>^YXNc2
+R2
+R0
+w1680768290
+8D:/WORK/new/DDS_test/output_files/Debounce.v
+FD:/WORK/new/DDS_test/output_files/Debounce.v
+Z8 L0 18
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/WORK/new/DDS_test/output_files/Debounce.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/WORK/new/DDS_test/output_files|D:/WORK/new/DDS_test/output_files/Debounce.v|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+D:/WORK/new/DDS_test/output_files
+R7
+n@debounce
+vDecoder
+R1
+!i10b 1
+!s100 lXRz6Ckm66dlkJ;;i2Rno0
+IlK4>VWo9>bVha^;84gcjT2
+R2
+R0
+w1680768054
+8D:/WORK/new/DDS_test/Decoder.v
+FD:/WORK/new/DDS_test/Decoder.v
+R8
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/WORK/new/DDS_test/Decoder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/WORK/new/DDS_test|D:/WORK/new/DDS_test/Decoder.v|
+!i113 1
+R5
+R6
+R7
+n@decoder
+vEncoder
+R1
+!i10b 1
+!s100 j6c[l=nfLd7kEc=cl5Lij2
+I;2>V9bA^EkmmLhg8EE9;43
+R2
+R0
+w1680588860
+8D:/WORK/new/DDS_test/Encoder.v
+FD:/WORK/new/DDS_test/Encoder.v
+R8
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/WORK/new/DDS_test/Encoder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/WORK/new/DDS_test|D:/WORK/new/DDS_test/Encoder.v|
+!i113 1
+R5
+R6
+R7
+n@encoder
+vlookup_table
+R1
+!i10b 1
+!s100 _Y=^i?@M]e^H7aWh::`Aj3
+IlaV>V9Oafk7z<YKPfg4zc0
+R2
+R0
+w1680767554
+8D:/WORK/new/DDS_test/lookup_table.v
+FD:/WORK/new/DDS_test/lookup_table.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/WORK/new/DDS_test/lookup_table.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/WORK/new/DDS_test|D:/WORK/new/DDS_test/lookup_table.v|
+!i113 1
+R5
+R6
+R7
+vsine_table
+R1
+!i10b 1
+!s100 6iLfNBHQ`UcAg8AgzJYLG2
+IFo:V76[20GFMfU;f5G@@63
+R2
+R0
+w1678441682
+8D:/WORK/new/DDS_test/sine_table.v
+FD:/WORK/new/DDS_test/sine_table.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/WORK/new/DDS_test/sine_table.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/WORK/new/DDS_test|D:/WORK/new/DDS_test/sine_table.v|
+!i113 1
+R5
+R6
+R7

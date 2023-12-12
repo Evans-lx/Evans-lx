@@ -1,0 +1,4803 @@
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
+
+// DATE "03/06/2023 10:35:28"
+
+// 
+// Device: Altera 10M02SCM153C8G Package MBGA153
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module OLED_test (
+	clk,
+	rst_n,
+	oled_csn,
+	oled_rst,
+	oled_dcn,
+	oled_clk,
+	oled_dat);
+input 	clk;
+input 	rst_n;
+output 	oled_csn;
+output 	oled_rst;
+output 	oled_dcn;
+output 	oled_clk;
+output 	oled_dat;
+
+// Design Ports Information
+// oled_csn	=>  Location: PIN_J9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// oled_rst	=>  Location: PIN_D7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// oled_dcn	=>  Location: PIN_H11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// oled_clk	=>  Location: PIN_J11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// oled_dat	=>  Location: PIN_A9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk	=>  Location: PIN_K5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// rst_n	=>  Location: PIN_K4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \~QUARTUS_CREATED_GND~I_combout ;
+wire \~QUARTUS_CREATED_UNVM~~busy ;
+wire \oled_csn~output_o ;
+wire \oled_rst~output_o ;
+wire \oled_dcn~output_o ;
+wire \oled_clk~output_o ;
+wire \oled_dat~output_o ;
+wire \clk~input_o ;
+wire \clk~inputclkctrl_outclk ;
+wire \U_OLED_driver|Add0~1_combout ;
+wire \U_OLED_driver|Add0~3_combout ;
+wire \rst_n~input_o ;
+wire \rst_n~inputclkctrl_outclk ;
+wire \U_OLED_driver|Selector152~0_combout ;
+wire \U_OLED_driver|Selector152~1_combout ;
+wire \U_OLED_driver|num[4]~feeder_combout ;
+wire \U_OLED_driver|Selector154~0_combout ;
+wire \U_OLED_driver|num[2]~feeder_combout ;
+wire \U_OLED_driver|Selector155~0_combout ;
+wire \U_OLED_driver|Selector156~0_combout ;
+wire \U_OLED_driver|num[0]~feeder_combout ;
+wire \U_OLED_driver|Add3~0_combout ;
+wire \U_OLED_driver|num[0]~4_combout ;
+wire \U_OLED_driver|Add1~9 ;
+wire \U_OLED_driver|Add1~10_combout ;
+wire \U_OLED_driver|Add1~48_combout ;
+wire \U_OLED_driver|Selector114~1_combout ;
+wire \U_OLED_driver|Selector77~1_combout ;
+wire \U_OLED_driver|Selector114~0_combout ;
+wire \U_OLED_driver|Selector114~2_combout ;
+wire \U_OLED_driver|Selector113~0_combout ;
+wire \U_OLED_driver|Selector113~1_combout ;
+wire \U_OLED_driver|Selector112~0_combout ;
+wire \U_OLED_driver|Selector112~1_combout ;
+wire \U_OLED_driver|Add1~50_combout ;
+wire \U_OLED_driver|Add1~11 ;
+wire \U_OLED_driver|Add1~12_combout ;
+wire \U_OLED_driver|Add1~20_combout ;
+wire \U_OLED_driver|Add1~13 ;
+wire \U_OLED_driver|Add1~15 ;
+wire \U_OLED_driver|Add1~16_combout ;
+wire \U_OLED_driver|Add1~18_combout ;
+wire \U_OLED_driver|LessThan1~0_combout ;
+wire \U_OLED_driver|Add1~2_combout ;
+wire \U_OLED_driver|Add1~47_combout ;
+wire \U_OLED_driver|Add1~3 ;
+wire \U_OLED_driver|Add1~4_combout ;
+wire \U_OLED_driver|Add1~46_combout ;
+wire \U_OLED_driver|Add1~5 ;
+wire \U_OLED_driver|Add1~6_combout ;
+wire \U_OLED_driver|Add1~45_combout ;
+wire \U_OLED_driver|Add1~7 ;
+wire \U_OLED_driver|Add1~8_combout ;
+wire \U_OLED_driver|Add1~49_combout ;
+wire \U_OLED_driver|Add1~17 ;
+wire \U_OLED_driver|Add1~21_combout ;
+wire \U_OLED_driver|Add1~44_combout ;
+wire \U_OLED_driver|Add1~22 ;
+wire \U_OLED_driver|Add1~23_combout ;
+wire \U_OLED_driver|Add1~43_combout ;
+wire \U_OLED_driver|Add1~24 ;
+wire \U_OLED_driver|Add1~25_combout ;
+wire \U_OLED_driver|Add1~42_combout ;
+wire \U_OLED_driver|Add1~26 ;
+wire \U_OLED_driver|Add1~27_combout ;
+wire \U_OLED_driver|Add1~41_combout ;
+wire \U_OLED_driver|Add1~28 ;
+wire \U_OLED_driver|Add1~29_combout ;
+wire \U_OLED_driver|Add1~40_combout ;
+wire \U_OLED_driver|Add1~30 ;
+wire \U_OLED_driver|Add1~31_combout ;
+wire \U_OLED_driver|Add1~39_combout ;
+wire \U_OLED_driver|Add1~32 ;
+wire \U_OLED_driver|Add1~33_combout ;
+wire \U_OLED_driver|Add1~38_combout ;
+wire \U_OLED_driver|Add1~34 ;
+wire \U_OLED_driver|Add1~35_combout ;
+wire \U_OLED_driver|Add1~37_combout ;
+wire \U_OLED_driver|LessThan1~1_combout ;
+wire \U_OLED_driver|LessThan1~3_combout ;
+wire \U_OLED_driver|LessThan1~2_combout ;
+wire \U_OLED_driver|LessThan1~4_combout ;
+wire \U_OLED_driver|Add1~14_combout ;
+wire \U_OLED_driver|Add1~19_combout ;
+wire \U_OLED_driver|LessThan1~5_combout ;
+wire \U_OLED_driver|Selector77~0_combout ;
+wire \U_OLED_driver|Add2~1 ;
+wire \U_OLED_driver|Add2~3 ;
+wire \U_OLED_driver|Add2~4_combout ;
+wire \U_OLED_driver|Add2~10_combout ;
+wire \U_OLED_driver|Add2~9_combout ;
+wire \U_OLED_driver|Add2~5 ;
+wire \U_OLED_driver|Add2~6_combout ;
+wire \U_OLED_driver|Add2~8_combout ;
+wire \U_OLED_driver|Add2~7 ;
+wire \U_OLED_driver|Add2~11_combout ;
+wire \U_OLED_driver|Add2~13_combout ;
+wire \U_OLED_driver|Add4~0_combout ;
+wire \U_OLED_driver|Add4~11_combout ;
+wire \U_OLED_driver|WideOr60~0_combout ;
+wire \U_OLED_driver|Add4~1 ;
+wire \U_OLED_driver|Add4~2_combout ;
+wire \U_OLED_driver|Add4~14_combout ;
+wire \U_OLED_driver|Add4~3 ;
+wire \U_OLED_driver|Add4~4_combout ;
+wire \U_OLED_driver|Add4~12_combout ;
+wire \U_OLED_driver|WideOr52~0_combout ;
+wire \U_OLED_driver|Add4~5 ;
+wire \U_OLED_driver|Add4~6_combout ;
+wire \U_OLED_driver|Add4~13_combout ;
+wire \U_OLED_driver|Add4~7 ;
+wire \U_OLED_driver|Add4~8_combout ;
+wire \U_OLED_driver|Add4~10_combout ;
+wire \U_OLED_driver|Selector358~0_combout ;
+wire \U_OLED_driver|Selector92~0_combout ;
+wire \U_OLED_driver|Selector358~1_combout ;
+wire \U_OLED_driver|Selector358~2_combout ;
+wire \U_OLED_driver|state.WRITE~q ;
+wire \U_OLED_driver|Selector357~2_combout ;
+wire \U_OLED_driver|Selector357~3_combout ;
+wire \U_OLED_driver|Selector356~0_combout ;
+wire \U_OLED_driver|Selector356~1_combout ;
+wire \U_OLED_driver|char_reg[5]~1_combout ;
+wire \U_OLED_driver|num[3]~2_combout ;
+wire \U_OLED_driver|Add0~0_combout ;
+wire \U_OLED_driver|Selector356~2_combout ;
+wire \U_OLED_driver|Selector356~3_combout ;
+wire \U_OLED_driver|Selector356~4_combout ;
+wire \U_OLED_driver|state.INIT~q ;
+wire \U_OLED_driver|Selector359~1_combout ;
+wire \U_OLED_driver|Selector359~0_combout ;
+wire \U_OLED_driver|Selector359~2_combout ;
+wire \U_OLED_driver|state.DELAY~q ;
+wire \U_OLED_driver|num[3]~3_combout ;
+wire \U_OLED_driver|num[0]~5_combout ;
+wire \U_OLED_driver|Add3~1 ;
+wire \U_OLED_driver|Add3~2_combout ;
+wire \U_OLED_driver|Add3~3 ;
+wire \U_OLED_driver|Add3~4_combout ;
+wire \U_OLED_driver|Add3~5 ;
+wire \U_OLED_driver|Add3~6_combout ;
+wire \U_OLED_driver|Add3~19_combout ;
+wire \U_OLED_driver|WideOr19~0_combout ;
+wire \U_OLED_driver|num[3]~6_combout ;
+wire \U_OLED_driver|Add3~7 ;
+wire \U_OLED_driver|Add3~8_combout ;
+wire \U_OLED_driver|Add3~9 ;
+wire \U_OLED_driver|Add3~10_combout ;
+wire \U_OLED_driver|Add3~18_combout ;
+wire \U_OLED_driver|Add3~11 ;
+wire \U_OLED_driver|Add3~12_combout ;
+wire \U_OLED_driver|Add3~17_combout ;
+wire \U_OLED_driver|Add3~13 ;
+wire \U_OLED_driver|Add3~14_combout ;
+wire \U_OLED_driver|Add3~16_combout ;
+wire \U_OLED_driver|WideOr41~0_combout ;
+wire \U_OLED_driver|WideOr41~1_combout ;
+wire \U_OLED_driver|cnt_scan~0_combout ;
+wire \U_OLED_driver|Add2~2_combout ;
+wire \U_OLED_driver|Add2~14_combout ;
+wire \U_OLED_driver|Equal0~0_combout ;
+wire \U_OLED_driver|Equal0~1_combout ;
+wire \U_OLED_driver|Add2~0_combout ;
+wire \U_OLED_driver|Add2~15_combout ;
+wire \U_OLED_driver|Selector332~0_combout ;
+wire \U_OLED_driver|Selector355~0_combout ;
+wire \U_OLED_driver|Selector355~1_combout ;
+wire \U_OLED_driver|Selector355~2_combout ;
+wire \U_OLED_driver|state.MAIN~q ;
+wire \U_OLED_driver|Add0~2 ;
+wire \U_OLED_driver|Add0~4_combout ;
+wire \U_OLED_driver|Add0~6_combout ;
+wire \U_OLED_driver|Add0~5 ;
+wire \U_OLED_driver|Add0~7_combout ;
+wire \U_OLED_driver|Add0~9_combout ;
+wire \U_OLED_driver|Add0~8 ;
+wire \U_OLED_driver|Add0~10_combout ;
+wire \U_OLED_driver|Add0~12_combout ;
+wire \U_OLED_driver|Add0~11 ;
+wire \U_OLED_driver|Add0~13_combout ;
+wire \U_OLED_driver|Add0~15_combout ;
+wire \U_OLED_driver|Selector357~5_combout ;
+wire \U_OLED_driver|state.SCAN~q ;
+wire \U_OLED_driver|Selector90~0_combout ;
+wire \U_OLED_driver|Selector354~1_combout ;
+wire \U_OLED_driver|WideOr0~0_combout ;
+wire \U_OLED_driver|Selector354~2_combout ;
+wire \U_OLED_driver|Selector101~0_combout ;
+wire \U_OLED_driver|Selector354~0_combout ;
+wire \U_OLED_driver|Selector354~3_combout ;
+wire \U_OLED_driver|state.IDLE~q ;
+wire \U_OLED_driver|Selector349~0_combout ;
+wire \U_OLED_driver|Selector349~1_combout ;
+wire \U_OLED_driver|oled_csn~q ;
+wire \U_OLED_driver|Selector350~0_combout ;
+wire \U_OLED_driver|Selector350~1_combout ;
+wire \U_OLED_driver|oled_rst~q ;
+wire \U_OLED_driver|Selector351~0_combout ;
+wire \U_OLED_driver|Selector351~1_combout ;
+wire \U_OLED_driver|Selector351~2_combout ;
+wire \U_OLED_driver|WideOr62~combout ;
+wire \U_OLED_driver|char_reg[5]~0_combout ;
+wire \U_OLED_driver|Selector351~3_combout ;
+wire \U_OLED_driver|oled_dcn~q ;
+wire \U_OLED_driver|Selector352~0_combout ;
+wire \U_OLED_driver|Selector352~1_combout ;
+wire \U_OLED_driver|Selector352~2_combout ;
+wire \U_OLED_driver|oled_clk~q ;
+wire \U_OLED_driver|Selector3~0_combout ;
+wire \U_OLED_driver|Selector131~0_combout ;
+wire \U_OLED_driver|Selector330~0_combout ;
+wire \U_OLED_driver|Selector330~1_combout ;
+wire \U_OLED_driver|char_reg[5]~2_combout ;
+wire \U_OLED_driver|char_reg[5]~3_combout ;
+wire \U_OLED_driver|char_reg[5]~4_combout ;
+wire \U_OLED_driver|Selector357~4_combout ;
+wire \U_OLED_driver|Selector136~0_combout ;
+wire \U_OLED_driver|Selector327~0_combout ;
+wire \U_OLED_driver|Mux15~2_combout ;
+wire \U_OLED_driver|Selector0~0_combout ;
+wire \U_OLED_driver|Selector331~0_combout ;
+wire \U_OLED_driver|Selector331~1_combout ;
+wire \U_OLED_driver|Selector331~2_combout ;
+wire \U_OLED_driver|Selector331~3_combout ;
+wire \U_OLED_driver|Selector332~3_combout ;
+wire \U_OLED_driver|Selector1~0_combout ;
+wire \U_OLED_driver|Selector332~1_combout ;
+wire \U_OLED_driver|Selector332~2_combout ;
+wire \U_OLED_driver|Selector332~4_combout ;
+wire \U_OLED_driver|Selector328~0_combout ;
+wire \U_OLED_driver|Mux15~0_combout ;
+wire \U_OLED_driver|Mux15~1_combout ;
+wire \U_OLED_driver|Mux15~3_combout ;
+wire \U_OLED_driver|Mux15~4_combout ;
+wire \U_OLED_driver|oled_dat~q ;
+wire [4:0] \U_OLED_driver|cnt_write ;
+wire [4:0] \U_OLED_driver|cnt_scan ;
+wire [15:0] \U_OLED_driver|cnt ;
+wire [4:0] \U_OLED_driver|cnt_main ;
+wire [7:0] \U_OLED_driver|num ;
+wire [7:0] \U_OLED_driver|char_reg ;
+wire [7:0] \U_OLED_driver|y_p ;
+wire [7:0] \U_OLED_driver|x_ph ;
+wire [4:0] \U_OLED_driver|cnt_init ;
+
+
+hard_block auto_generated_inst(
+	.devpor(devpor),
+	.devclrn(devclrn),
+	.devoe(devoe));
+
+// Location: LCCOMB_X11_Y9_N12
+fiftyfivenm_lcell_comb \~QUARTUS_CREATED_GND~I (
+// Equation(s):
+// \~QUARTUS_CREATED_GND~I_combout  = GND
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\~QUARTUS_CREATED_GND~I_combout ),
+	.cout());
+// synopsys translate_off
+defparam \~QUARTUS_CREATED_GND~I .lut_mask = 16'h0000;
+defparam \~QUARTUS_CREATED_GND~I .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOOBUF_X18_Y4_N23
+fiftyfivenm_io_obuf \oled_csn~output (
+	.i(!\U_OLED_driver|oled_csn~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\oled_csn~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \oled_csn~output .bus_hold = "false";
+defparam \oled_csn~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X6_Y7_N23
+fiftyfivenm_io_obuf \oled_rst~output (
+	.i(!\U_OLED_driver|oled_rst~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\oled_rst~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \oled_rst~output .bus_hold = "false";
+defparam \oled_rst~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X18_Y6_N16
+fiftyfivenm_io_obuf \oled_dcn~output (
+	.i(\U_OLED_driver|oled_dcn~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\oled_dcn~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \oled_dcn~output .bus_hold = "false";
+defparam \oled_dcn~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X18_Y4_N16
+fiftyfivenm_io_obuf \oled_clk~output (
+	.i(!\U_OLED_driver|oled_clk~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\oled_clk~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \oled_clk~output .bus_hold = "false";
+defparam \oled_clk~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X6_Y7_N9
+fiftyfivenm_io_obuf \oled_dat~output (
+	.i(\U_OLED_driver|oled_dat~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\oled_dat~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \oled_dat~output .bus_hold = "false";
+defparam \oled_dat~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y4_N15
+fiftyfivenm_io_ibuf \clk~input (
+	.i(clk),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\clk~input_o ));
+// synopsys translate_off
+defparam \clk~input .bus_hold = "false";
+defparam \clk~input .listen_to_nsleep_signal = "false";
+defparam \clk~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G3
+fiftyfivenm_clkctrl \clk~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\clk~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\clk~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \clk~inputclkctrl .clock_type = "global clock";
+defparam \clk~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y5_N12
+fiftyfivenm_lcell_comb \U_OLED_driver|Add0~1 (
+// Equation(s):
+// \U_OLED_driver|Add0~1_combout  = \U_OLED_driver|cnt_main [0] $ (VCC)
+// \U_OLED_driver|Add0~2  = CARRY(\U_OLED_driver|cnt_main [0])
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_main [0]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add0~1_combout ),
+	.cout(\U_OLED_driver|Add0~2 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add0~1 .lut_mask = 16'h33CC;
+defparam \U_OLED_driver|Add0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y5_N24
+fiftyfivenm_lcell_comb \U_OLED_driver|Add0~3 (
+// Equation(s):
+// \U_OLED_driver|Add0~3_combout  = (\U_OLED_driver|Add0~1_combout ) # ((\U_OLED_driver|cnt_main [4]) # (\U_OLED_driver|cnt_main [3]))
+
+	.dataa(\U_OLED_driver|Add0~1_combout ),
+	.datab(\U_OLED_driver|cnt_main [4]),
+	.datac(\U_OLED_driver|cnt_main [3]),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add0~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add0~3 .lut_mask = 16'hFEFE;
+defparam \U_OLED_driver|Add0~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y4_N22
+fiftyfivenm_io_ibuf \rst_n~input (
+	.i(rst_n),
+	.ibar(gnd),
+	.nsleep(vcc),
+	.o(\rst_n~input_o ));
+// synopsys translate_off
+defparam \rst_n~input .bus_hold = "false";
+defparam \rst_n~input .listen_to_nsleep_signal = "false";
+defparam \rst_n~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G4
+fiftyfivenm_clkctrl \rst_n~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\rst_n~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\rst_n~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \rst_n~inputclkctrl .clock_type = "global clock";
+defparam \rst_n~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N8
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector152~0 (
+// Equation(s):
+// \U_OLED_driver|Selector152~0_combout  = (!\U_OLED_driver|cnt_main [3] & \U_OLED_driver|state.MAIN~q )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\U_OLED_driver|cnt_main [3]),
+	.datad(\U_OLED_driver|state.MAIN~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector152~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector152~0 .lut_mask = 16'h0F00;
+defparam \U_OLED_driver|Selector152~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N30
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector152~1 (
+// Equation(s):
+// \U_OLED_driver|Selector152~1_combout  = (\U_OLED_driver|Selector152~0_combout  & (((!\U_OLED_driver|cnt_main [0] & !\U_OLED_driver|cnt_main [1])) # (!\U_OLED_driver|cnt_main [2])))
+
+	.dataa(\U_OLED_driver|cnt_main [0]),
+	.datab(\U_OLED_driver|cnt_main [2]),
+	.datac(\U_OLED_driver|Selector152~0_combout ),
+	.datad(\U_OLED_driver|cnt_main [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector152~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector152~1 .lut_mask = 16'h3070;
+defparam \U_OLED_driver|Selector152~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N20
+fiftyfivenm_lcell_comb \U_OLED_driver|num[4]~feeder (
+// Equation(s):
+// \U_OLED_driver|num[4]~feeder_combout  = \U_OLED_driver|Selector152~1_combout 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\U_OLED_driver|Selector152~1_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|num[4]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|num[4]~feeder .lut_mask = 16'hFF00;
+defparam \U_OLED_driver|num[4]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N28
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector154~0 (
+// Equation(s):
+// \U_OLED_driver|Selector154~0_combout  = (!\U_OLED_driver|cnt_main [0] & (\U_OLED_driver|cnt_main [2] & (\U_OLED_driver|Selector152~0_combout  & \U_OLED_driver|cnt_main [1])))
+
+	.dataa(\U_OLED_driver|cnt_main [0]),
+	.datab(\U_OLED_driver|cnt_main [2]),
+	.datac(\U_OLED_driver|Selector152~0_combout ),
+	.datad(\U_OLED_driver|cnt_main [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector154~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector154~0 .lut_mask = 16'h4000;
+defparam \U_OLED_driver|Selector154~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N22
+fiftyfivenm_lcell_comb \U_OLED_driver|num[2]~feeder (
+// Equation(s):
+// \U_OLED_driver|num[2]~feeder_combout  = \U_OLED_driver|Selector154~0_combout 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\U_OLED_driver|Selector154~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|num[2]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|num[2]~feeder .lut_mask = 16'hFF00;
+defparam \U_OLED_driver|num[2]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N12
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector155~0 (
+// Equation(s):
+// \U_OLED_driver|Selector155~0_combout  = (\U_OLED_driver|state.MAIN~q  & \U_OLED_driver|cnt_main [3])
+
+	.dataa(\U_OLED_driver|state.MAIN~q ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\U_OLED_driver|cnt_main [3]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector155~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector155~0 .lut_mask = 16'hAA00;
+defparam \U_OLED_driver|Selector155~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N6
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector156~0 (
+// Equation(s):
+// \U_OLED_driver|Selector156~0_combout  = (\U_OLED_driver|cnt_main [2] & (\U_OLED_driver|Selector152~0_combout  & ((\U_OLED_driver|cnt_main [0]) # (\U_OLED_driver|cnt_main [1]))))
+
+	.dataa(\U_OLED_driver|cnt_main [0]),
+	.datab(\U_OLED_driver|cnt_main [2]),
+	.datac(\U_OLED_driver|Selector152~0_combout ),
+	.datad(\U_OLED_driver|cnt_main [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector156~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector156~0 .lut_mask = 16'hC080;
+defparam \U_OLED_driver|Selector156~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N30
+fiftyfivenm_lcell_comb \U_OLED_driver|num[0]~feeder (
+// Equation(s):
+// \U_OLED_driver|num[0]~feeder_combout  = \U_OLED_driver|Selector156~0_combout 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\U_OLED_driver|Selector156~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|num[0]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|num[0]~feeder .lut_mask = 16'hFF00;
+defparam \U_OLED_driver|num[0]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N12
+fiftyfivenm_lcell_comb \U_OLED_driver|Add3~0 (
+// Equation(s):
+// \U_OLED_driver|Add3~0_combout  = \U_OLED_driver|num [0] $ (VCC)
+// \U_OLED_driver|Add3~1  = CARRY(\U_OLED_driver|num [0])
+
+	.dataa(\U_OLED_driver|num [0]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add3~0_combout ),
+	.cout(\U_OLED_driver|Add3~1 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add3~0 .lut_mask = 16'h55AA;
+defparam \U_OLED_driver|Add3~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y5_N22
+fiftyfivenm_lcell_comb \U_OLED_driver|num[0]~4 (
+// Equation(s):
+// \U_OLED_driver|num[0]~4_combout  = \U_OLED_driver|cnt_main [3] $ (((!\U_OLED_driver|cnt_main [0] & (!\U_OLED_driver|cnt_main [1] & !\U_OLED_driver|cnt_main [2]))))
+
+	.dataa(\U_OLED_driver|cnt_main [3]),
+	.datab(\U_OLED_driver|cnt_main [0]),
+	.datac(\U_OLED_driver|cnt_main [1]),
+	.datad(\U_OLED_driver|cnt_main [2]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|num[0]~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|num[0]~4 .lut_mask = 16'hAAA9;
+defparam \U_OLED_driver|num[0]~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N6
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~8 (
+// Equation(s):
+// \U_OLED_driver|Add1~8_combout  = (\U_OLED_driver|cnt [3] & (!\U_OLED_driver|Add1~7 )) # (!\U_OLED_driver|cnt [3] & ((\U_OLED_driver|Add1~7 ) # (GND)))
+// \U_OLED_driver|Add1~9  = CARRY((!\U_OLED_driver|Add1~7 ) # (!\U_OLED_driver|cnt [3]))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt [3]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add1~7 ),
+	.combout(\U_OLED_driver|Add1~8_combout ),
+	.cout(\U_OLED_driver|Add1~9 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~8 .lut_mask = 16'h3C3F;
+defparam \U_OLED_driver|Add1~8 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N8
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~10 (
+// Equation(s):
+// \U_OLED_driver|Add1~10_combout  = (\U_OLED_driver|cnt [4] & (\U_OLED_driver|Add1~9  $ (GND))) # (!\U_OLED_driver|cnt [4] & (!\U_OLED_driver|Add1~9  & VCC))
+// \U_OLED_driver|Add1~11  = CARRY((\U_OLED_driver|cnt [4] & !\U_OLED_driver|Add1~9 ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt [4]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add1~9 ),
+	.combout(\U_OLED_driver|Add1~10_combout ),
+	.cout(\U_OLED_driver|Add1~11 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~10 .lut_mask = 16'hC30C;
+defparam \U_OLED_driver|Add1~10 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N18
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~48 (
+// Equation(s):
+// \U_OLED_driver|Add1~48_combout  = (\U_OLED_driver|LessThan1~0_combout  & (\U_OLED_driver|LessThan1~4_combout  & \U_OLED_driver|Add1~10_combout ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|LessThan1~0_combout ),
+	.datac(\U_OLED_driver|LessThan1~4_combout ),
+	.datad(\U_OLED_driver|Add1~10_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~48_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~48 .lut_mask = 16'hC000;
+defparam \U_OLED_driver|Add1~48 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N2
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector114~1 (
+// Equation(s):
+// \U_OLED_driver|Selector114~1_combout  = (\U_OLED_driver|state.INIT~q  & (\U_OLED_driver|cnt_init [2] & (\U_OLED_driver|cnt_init [1] $ (!\U_OLED_driver|cnt_init [0]))))
+
+	.dataa(\U_OLED_driver|state.INIT~q ),
+	.datab(\U_OLED_driver|cnt_init [2]),
+	.datac(\U_OLED_driver|cnt_init [1]),
+	.datad(\U_OLED_driver|cnt_init [0]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector114~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector114~1 .lut_mask = 16'h8008;
+defparam \U_OLED_driver|Selector114~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N18
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector77~1 (
+// Equation(s):
+// \U_OLED_driver|Selector77~1_combout  = (!\U_OLED_driver|cnt_init [0] & !\U_OLED_driver|cnt_init [1])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\U_OLED_driver|cnt_init [0]),
+	.datad(\U_OLED_driver|cnt_init [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector77~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector77~1 .lut_mask = 16'h000F;
+defparam \U_OLED_driver|Selector77~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N22
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector114~0 (
+// Equation(s):
+// \U_OLED_driver|Selector114~0_combout  = (\U_OLED_driver|cnt_init [0] & (((\U_OLED_driver|state.IDLE~q  & !\U_OLED_driver|state.INIT~q )))) # (!\U_OLED_driver|cnt_init [0] & (!\U_OLED_driver|cnt_init [2] & ((\U_OLED_driver|state.INIT~q ))))
+
+	.dataa(\U_OLED_driver|cnt_init [0]),
+	.datab(\U_OLED_driver|cnt_init [2]),
+	.datac(\U_OLED_driver|state.IDLE~q ),
+	.datad(\U_OLED_driver|state.INIT~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector114~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector114~0 .lut_mask = 16'h11A0;
+defparam \U_OLED_driver|Selector114~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N30
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector114~2 (
+// Equation(s):
+// \U_OLED_driver|Selector114~2_combout  = (\U_OLED_driver|Selector114~0_combout ) # ((\U_OLED_driver|Selector114~1_combout  & ((!\U_OLED_driver|LessThan1~5_combout ) # (!\U_OLED_driver|Selector77~1_combout ))))
+
+	.dataa(\U_OLED_driver|Selector114~1_combout ),
+	.datab(\U_OLED_driver|Selector77~1_combout ),
+	.datac(\U_OLED_driver|Selector114~0_combout ),
+	.datad(\U_OLED_driver|LessThan1~5_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector114~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector114~2 .lut_mask = 16'hF2FA;
+defparam \U_OLED_driver|Selector114~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y6_N31
+dffeas \U_OLED_driver|cnt_init[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector114~2_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_init [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_init[0] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_init[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N28
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector113~0 (
+// Equation(s):
+// \U_OLED_driver|Selector113~0_combout  = (\U_OLED_driver|cnt_init [0] & !\U_OLED_driver|cnt_init [2])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\U_OLED_driver|cnt_init [0]),
+	.datad(\U_OLED_driver|cnt_init [2]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector113~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector113~0 .lut_mask = 16'h00F0;
+defparam \U_OLED_driver|Selector113~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N12
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector113~1 (
+// Equation(s):
+// \U_OLED_driver|Selector113~1_combout  = (\U_OLED_driver|state.INIT~q  & ((\U_OLED_driver|cnt_init [1] $ (\U_OLED_driver|Selector113~0_combout )))) # (!\U_OLED_driver|state.INIT~q  & (\U_OLED_driver|state.IDLE~q  & (\U_OLED_driver|cnt_init [1])))
+
+	.dataa(\U_OLED_driver|state.INIT~q ),
+	.datab(\U_OLED_driver|state.IDLE~q ),
+	.datac(\U_OLED_driver|cnt_init [1]),
+	.datad(\U_OLED_driver|Selector113~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector113~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector113~1 .lut_mask = 16'h4AE0;
+defparam \U_OLED_driver|Selector113~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y6_N13
+dffeas \U_OLED_driver|cnt_init[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector113~1_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_init [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_init[1] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_init[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N0
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector112~0 (
+// Equation(s):
+// \U_OLED_driver|Selector112~0_combout  = (\U_OLED_driver|cnt_init [2] & ((\U_OLED_driver|state.INIT~q  & (!\U_OLED_driver|cnt_init [0])) # (!\U_OLED_driver|state.INIT~q  & ((\U_OLED_driver|state.IDLE~q )))))
+
+	.dataa(\U_OLED_driver|cnt_init [0]),
+	.datab(\U_OLED_driver|cnt_init [2]),
+	.datac(\U_OLED_driver|state.IDLE~q ),
+	.datad(\U_OLED_driver|state.INIT~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector112~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector112~0 .lut_mask = 16'h44C0;
+defparam \U_OLED_driver|Selector112~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N24
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector112~1 (
+// Equation(s):
+// \U_OLED_driver|Selector112~1_combout  = (\U_OLED_driver|Selector112~0_combout ) # ((\U_OLED_driver|state.INIT~q  & (\U_OLED_driver|cnt_init [1] & \U_OLED_driver|cnt_init [0])))
+
+	.dataa(\U_OLED_driver|state.INIT~q ),
+	.datab(\U_OLED_driver|cnt_init [1]),
+	.datac(\U_OLED_driver|cnt_init [0]),
+	.datad(\U_OLED_driver|Selector112~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector112~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector112~1 .lut_mask = 16'hFF80;
+defparam \U_OLED_driver|Selector112~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y6_N25
+dffeas \U_OLED_driver|cnt_init[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector112~1_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_init [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_init[2] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_init[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N26
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~50 (
+// Equation(s):
+// \U_OLED_driver|Add1~50_combout  = (\U_OLED_driver|state.INIT~q  & (\U_OLED_driver|cnt_init [2] & ((\U_OLED_driver|Selector77~1_combout )))) # (!\U_OLED_driver|state.INIT~q  & (((!\U_OLED_driver|state.IDLE~q ))))
+
+	.dataa(\U_OLED_driver|cnt_init [2]),
+	.datab(\U_OLED_driver|state.INIT~q ),
+	.datac(\U_OLED_driver|state.IDLE~q ),
+	.datad(\U_OLED_driver|Selector77~1_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~50_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~50 .lut_mask = 16'h8B03;
+defparam \U_OLED_driver|Add1~50 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X11_Y6_N19
+dffeas \U_OLED_driver|cnt[4] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~48_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[4] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N10
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~12 (
+// Equation(s):
+// \U_OLED_driver|Add1~12_combout  = (\U_OLED_driver|cnt [5] & (!\U_OLED_driver|Add1~11 )) # (!\U_OLED_driver|cnt [5] & ((\U_OLED_driver|Add1~11 ) # (GND)))
+// \U_OLED_driver|Add1~13  = CARRY((!\U_OLED_driver|Add1~11 ) # (!\U_OLED_driver|cnt [5]))
+
+	.dataa(\U_OLED_driver|cnt [5]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add1~11 ),
+	.combout(\U_OLED_driver|Add1~12_combout ),
+	.cout(\U_OLED_driver|Add1~13 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~12 .lut_mask = 16'h5A5F;
+defparam \U_OLED_driver|Add1~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X9_Y6_N8
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~20 (
+// Equation(s):
+// \U_OLED_driver|Add1~20_combout  = (\U_OLED_driver|LessThan1~4_combout  & (\U_OLED_driver|LessThan1~0_combout  & \U_OLED_driver|Add1~12_combout ))
+
+	.dataa(\U_OLED_driver|LessThan1~4_combout ),
+	.datab(\U_OLED_driver|LessThan1~0_combout ),
+	.datac(\U_OLED_driver|Add1~12_combout ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~20_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~20 .lut_mask = 16'h8080;
+defparam \U_OLED_driver|Add1~20 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X9_Y6_N9
+dffeas \U_OLED_driver|cnt[5] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~20_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[5] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N12
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~14 (
+// Equation(s):
+// \U_OLED_driver|Add1~14_combout  = (\U_OLED_driver|cnt [6] & (\U_OLED_driver|Add1~13  $ (GND))) # (!\U_OLED_driver|cnt [6] & (!\U_OLED_driver|Add1~13  & VCC))
+// \U_OLED_driver|Add1~15  = CARRY((\U_OLED_driver|cnt [6] & !\U_OLED_driver|Add1~13 ))
+
+	.dataa(\U_OLED_driver|cnt [6]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add1~13 ),
+	.combout(\U_OLED_driver|Add1~14_combout ),
+	.cout(\U_OLED_driver|Add1~15 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~14 .lut_mask = 16'hA50A;
+defparam \U_OLED_driver|Add1~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N14
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~16 (
+// Equation(s):
+// \U_OLED_driver|Add1~16_combout  = (\U_OLED_driver|cnt [7] & (!\U_OLED_driver|Add1~15 )) # (!\U_OLED_driver|cnt [7] & ((\U_OLED_driver|Add1~15 ) # (GND)))
+// \U_OLED_driver|Add1~17  = CARRY((!\U_OLED_driver|Add1~15 ) # (!\U_OLED_driver|cnt [7]))
+
+	.dataa(\U_OLED_driver|cnt [7]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add1~15 ),
+	.combout(\U_OLED_driver|Add1~16_combout ),
+	.cout(\U_OLED_driver|Add1~17 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~16 .lut_mask = 16'h5A5F;
+defparam \U_OLED_driver|Add1~16 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X9_Y6_N16
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~18 (
+// Equation(s):
+// \U_OLED_driver|Add1~18_combout  = (\U_OLED_driver|LessThan1~4_combout  & (\U_OLED_driver|LessThan1~0_combout  & \U_OLED_driver|Add1~16_combout ))
+
+	.dataa(\U_OLED_driver|LessThan1~4_combout ),
+	.datab(\U_OLED_driver|LessThan1~0_combout ),
+	.datac(\U_OLED_driver|Add1~16_combout ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~18_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~18 .lut_mask = 16'h8080;
+defparam \U_OLED_driver|Add1~18 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X9_Y6_N17
+dffeas \U_OLED_driver|cnt[7] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~18_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[7] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X9_Y6_N20
+fiftyfivenm_lcell_comb \U_OLED_driver|LessThan1~0 (
+// Equation(s):
+// \U_OLED_driver|LessThan1~0_combout  = (!\U_OLED_driver|cnt [6] & (!\U_OLED_driver|cnt [5] & !\U_OLED_driver|cnt [7]))
+
+	.dataa(\U_OLED_driver|cnt [6]),
+	.datab(gnd),
+	.datac(\U_OLED_driver|cnt [5]),
+	.datad(\U_OLED_driver|cnt [7]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|LessThan1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|LessThan1~0 .lut_mask = 16'h0005;
+defparam \U_OLED_driver|LessThan1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N0
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~2 (
+// Equation(s):
+// \U_OLED_driver|Add1~2_combout  = \U_OLED_driver|cnt [0] $ (VCC)
+// \U_OLED_driver|Add1~3  = CARRY(\U_OLED_driver|cnt [0])
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt [0]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~2_combout ),
+	.cout(\U_OLED_driver|Add1~3 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~2 .lut_mask = 16'h33CC;
+defparam \U_OLED_driver|Add1~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N0
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~47 (
+// Equation(s):
+// \U_OLED_driver|Add1~47_combout  = (\U_OLED_driver|LessThan1~4_combout  & (\U_OLED_driver|Add1~2_combout  & \U_OLED_driver|LessThan1~0_combout ))
+
+	.dataa(\U_OLED_driver|LessThan1~4_combout ),
+	.datab(gnd),
+	.datac(\U_OLED_driver|Add1~2_combout ),
+	.datad(\U_OLED_driver|LessThan1~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~47_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~47 .lut_mask = 16'hA000;
+defparam \U_OLED_driver|Add1~47 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X11_Y6_N1
+dffeas \U_OLED_driver|cnt[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~47_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[0] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N2
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~4 (
+// Equation(s):
+// \U_OLED_driver|Add1~4_combout  = (\U_OLED_driver|cnt [1] & (!\U_OLED_driver|Add1~3 )) # (!\U_OLED_driver|cnt [1] & ((\U_OLED_driver|Add1~3 ) # (GND)))
+// \U_OLED_driver|Add1~5  = CARRY((!\U_OLED_driver|Add1~3 ) # (!\U_OLED_driver|cnt [1]))
+
+	.dataa(\U_OLED_driver|cnt [1]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add1~3 ),
+	.combout(\U_OLED_driver|Add1~4_combout ),
+	.cout(\U_OLED_driver|Add1~5 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~4 .lut_mask = 16'h5A5F;
+defparam \U_OLED_driver|Add1~4 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N30
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~46 (
+// Equation(s):
+// \U_OLED_driver|Add1~46_combout  = (\U_OLED_driver|LessThan1~0_combout  & (\U_OLED_driver|LessThan1~4_combout  & \U_OLED_driver|Add1~4_combout ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|LessThan1~0_combout ),
+	.datac(\U_OLED_driver|LessThan1~4_combout ),
+	.datad(\U_OLED_driver|Add1~4_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~46_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~46 .lut_mask = 16'hC000;
+defparam \U_OLED_driver|Add1~46 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X11_Y6_N31
+dffeas \U_OLED_driver|cnt[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~46_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[1] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N4
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~6 (
+// Equation(s):
+// \U_OLED_driver|Add1~6_combout  = (\U_OLED_driver|cnt [2] & (\U_OLED_driver|Add1~5  $ (GND))) # (!\U_OLED_driver|cnt [2] & (!\U_OLED_driver|Add1~5  & VCC))
+// \U_OLED_driver|Add1~7  = CARRY((\U_OLED_driver|cnt [2] & !\U_OLED_driver|Add1~5 ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt [2]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add1~5 ),
+	.combout(\U_OLED_driver|Add1~6_combout ),
+	.cout(\U_OLED_driver|Add1~7 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~6 .lut_mask = 16'hC30C;
+defparam \U_OLED_driver|Add1~6 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N12
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~45 (
+// Equation(s):
+// \U_OLED_driver|Add1~45_combout  = (\U_OLED_driver|LessThan1~4_combout  & (\U_OLED_driver|Add1~6_combout  & \U_OLED_driver|LessThan1~0_combout ))
+
+	.dataa(\U_OLED_driver|LessThan1~4_combout ),
+	.datab(gnd),
+	.datac(\U_OLED_driver|Add1~6_combout ),
+	.datad(\U_OLED_driver|LessThan1~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~45_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~45 .lut_mask = 16'hA000;
+defparam \U_OLED_driver|Add1~45 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X11_Y6_N13
+dffeas \U_OLED_driver|cnt[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~45_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[2] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N16
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~49 (
+// Equation(s):
+// \U_OLED_driver|Add1~49_combout  = (\U_OLED_driver|LessThan1~4_combout  & (\U_OLED_driver|Add1~8_combout  & \U_OLED_driver|LessThan1~0_combout ))
+
+	.dataa(\U_OLED_driver|LessThan1~4_combout ),
+	.datab(gnd),
+	.datac(\U_OLED_driver|Add1~8_combout ),
+	.datad(\U_OLED_driver|LessThan1~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~49_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~49 .lut_mask = 16'hA000;
+defparam \U_OLED_driver|Add1~49 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X11_Y6_N17
+dffeas \U_OLED_driver|cnt[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~49_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[3] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N16
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~21 (
+// Equation(s):
+// \U_OLED_driver|Add1~21_combout  = (\U_OLED_driver|cnt [8] & (\U_OLED_driver|Add1~17  $ (GND))) # (!\U_OLED_driver|cnt [8] & (!\U_OLED_driver|Add1~17  & VCC))
+// \U_OLED_driver|Add1~22  = CARRY((\U_OLED_driver|cnt [8] & !\U_OLED_driver|Add1~17 ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt [8]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add1~17 ),
+	.combout(\U_OLED_driver|Add1~21_combout ),
+	.cout(\U_OLED_driver|Add1~22 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~21 .lut_mask = 16'hC30C;
+defparam \U_OLED_driver|Add1~21 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X9_Y6_N4
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~44 (
+// Equation(s):
+// \U_OLED_driver|Add1~44_combout  = (\U_OLED_driver|LessThan1~0_combout  & (\U_OLED_driver|LessThan1~4_combout  & \U_OLED_driver|Add1~21_combout ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|LessThan1~0_combout ),
+	.datac(\U_OLED_driver|LessThan1~4_combout ),
+	.datad(\U_OLED_driver|Add1~21_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~44_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~44 .lut_mask = 16'hC000;
+defparam \U_OLED_driver|Add1~44 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X9_Y6_N5
+dffeas \U_OLED_driver|cnt[8] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~44_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[8] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N18
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~23 (
+// Equation(s):
+// \U_OLED_driver|Add1~23_combout  = (\U_OLED_driver|cnt [9] & (!\U_OLED_driver|Add1~22 )) # (!\U_OLED_driver|cnt [9] & ((\U_OLED_driver|Add1~22 ) # (GND)))
+// \U_OLED_driver|Add1~24  = CARRY((!\U_OLED_driver|Add1~22 ) # (!\U_OLED_driver|cnt [9]))
+
+	.dataa(\U_OLED_driver|cnt [9]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add1~22 ),
+	.combout(\U_OLED_driver|Add1~23_combout ),
+	.cout(\U_OLED_driver|Add1~24 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~23 .lut_mask = 16'h5A5F;
+defparam \U_OLED_driver|Add1~23 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X9_Y6_N26
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~43 (
+// Equation(s):
+// \U_OLED_driver|Add1~43_combout  = (\U_OLED_driver|LessThan1~0_combout  & (\U_OLED_driver|LessThan1~4_combout  & \U_OLED_driver|Add1~23_combout ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|LessThan1~0_combout ),
+	.datac(\U_OLED_driver|LessThan1~4_combout ),
+	.datad(\U_OLED_driver|Add1~23_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~43_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~43 .lut_mask = 16'hC000;
+defparam \U_OLED_driver|Add1~43 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X9_Y6_N27
+dffeas \U_OLED_driver|cnt[9] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~43_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [9]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[9] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[9] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N20
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~25 (
+// Equation(s):
+// \U_OLED_driver|Add1~25_combout  = (\U_OLED_driver|cnt [10] & (\U_OLED_driver|Add1~24  $ (GND))) # (!\U_OLED_driver|cnt [10] & (!\U_OLED_driver|Add1~24  & VCC))
+// \U_OLED_driver|Add1~26  = CARRY((\U_OLED_driver|cnt [10] & !\U_OLED_driver|Add1~24 ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt [10]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add1~24 ),
+	.combout(\U_OLED_driver|Add1~25_combout ),
+	.cout(\U_OLED_driver|Add1~26 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~25 .lut_mask = 16'hC30C;
+defparam \U_OLED_driver|Add1~25 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X9_Y6_N24
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~42 (
+// Equation(s):
+// \U_OLED_driver|Add1~42_combout  = (\U_OLED_driver|LessThan1~4_combout  & (\U_OLED_driver|LessThan1~0_combout  & \U_OLED_driver|Add1~25_combout ))
+
+	.dataa(\U_OLED_driver|LessThan1~4_combout ),
+	.datab(\U_OLED_driver|LessThan1~0_combout ),
+	.datac(\U_OLED_driver|Add1~25_combout ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~42_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~42 .lut_mask = 16'h8080;
+defparam \U_OLED_driver|Add1~42 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X9_Y6_N25
+dffeas \U_OLED_driver|cnt[10] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~42_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [10]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[10] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[10] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N22
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~27 (
+// Equation(s):
+// \U_OLED_driver|Add1~27_combout  = (\U_OLED_driver|cnt [11] & (!\U_OLED_driver|Add1~26 )) # (!\U_OLED_driver|cnt [11] & ((\U_OLED_driver|Add1~26 ) # (GND)))
+// \U_OLED_driver|Add1~28  = CARRY((!\U_OLED_driver|Add1~26 ) # (!\U_OLED_driver|cnt [11]))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt [11]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add1~26 ),
+	.combout(\U_OLED_driver|Add1~27_combout ),
+	.cout(\U_OLED_driver|Add1~28 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~27 .lut_mask = 16'h3C3F;
+defparam \U_OLED_driver|Add1~27 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X9_Y6_N18
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~41 (
+// Equation(s):
+// \U_OLED_driver|Add1~41_combout  = (\U_OLED_driver|LessThan1~0_combout  & (\U_OLED_driver|LessThan1~4_combout  & \U_OLED_driver|Add1~27_combout ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|LessThan1~0_combout ),
+	.datac(\U_OLED_driver|LessThan1~4_combout ),
+	.datad(\U_OLED_driver|Add1~27_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~41_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~41 .lut_mask = 16'hC000;
+defparam \U_OLED_driver|Add1~41 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X9_Y6_N19
+dffeas \U_OLED_driver|cnt[11] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~41_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [11]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[11] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[11] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N24
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~29 (
+// Equation(s):
+// \U_OLED_driver|Add1~29_combout  = (\U_OLED_driver|cnt [12] & (\U_OLED_driver|Add1~28  $ (GND))) # (!\U_OLED_driver|cnt [12] & (!\U_OLED_driver|Add1~28  & VCC))
+// \U_OLED_driver|Add1~30  = CARRY((\U_OLED_driver|cnt [12] & !\U_OLED_driver|Add1~28 ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt [12]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add1~28 ),
+	.combout(\U_OLED_driver|Add1~29_combout ),
+	.cout(\U_OLED_driver|Add1~30 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~29 .lut_mask = 16'hC30C;
+defparam \U_OLED_driver|Add1~29 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N6
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~40 (
+// Equation(s):
+// \U_OLED_driver|Add1~40_combout  = (\U_OLED_driver|LessThan1~0_combout  & (\U_OLED_driver|LessThan1~4_combout  & \U_OLED_driver|Add1~29_combout ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|LessThan1~0_combout ),
+	.datac(\U_OLED_driver|LessThan1~4_combout ),
+	.datad(\U_OLED_driver|Add1~29_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~40_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~40 .lut_mask = 16'hC000;
+defparam \U_OLED_driver|Add1~40 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X11_Y6_N7
+dffeas \U_OLED_driver|cnt[12] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~40_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [12]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[12] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[12] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N26
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~31 (
+// Equation(s):
+// \U_OLED_driver|Add1~31_combout  = (\U_OLED_driver|cnt [13] & (!\U_OLED_driver|Add1~30 )) # (!\U_OLED_driver|cnt [13] & ((\U_OLED_driver|Add1~30 ) # (GND)))
+// \U_OLED_driver|Add1~32  = CARRY((!\U_OLED_driver|Add1~30 ) # (!\U_OLED_driver|cnt [13]))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt [13]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add1~30 ),
+	.combout(\U_OLED_driver|Add1~31_combout ),
+	.cout(\U_OLED_driver|Add1~32 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~31 .lut_mask = 16'h3C3F;
+defparam \U_OLED_driver|Add1~31 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N28
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~39 (
+// Equation(s):
+// \U_OLED_driver|Add1~39_combout  = (\U_OLED_driver|LessThan1~4_combout  & (\U_OLED_driver|Add1~31_combout  & \U_OLED_driver|LessThan1~0_combout ))
+
+	.dataa(\U_OLED_driver|LessThan1~4_combout ),
+	.datab(gnd),
+	.datac(\U_OLED_driver|Add1~31_combout ),
+	.datad(\U_OLED_driver|LessThan1~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~39_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~39 .lut_mask = 16'hA000;
+defparam \U_OLED_driver|Add1~39 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X11_Y6_N29
+dffeas \U_OLED_driver|cnt[13] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~39_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [13]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[13] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[13] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N28
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~33 (
+// Equation(s):
+// \U_OLED_driver|Add1~33_combout  = (\U_OLED_driver|cnt [14] & (\U_OLED_driver|Add1~32  $ (GND))) # (!\U_OLED_driver|cnt [14] & (!\U_OLED_driver|Add1~32  & VCC))
+// \U_OLED_driver|Add1~34  = CARRY((\U_OLED_driver|cnt [14] & !\U_OLED_driver|Add1~32 ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt [14]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add1~32 ),
+	.combout(\U_OLED_driver|Add1~33_combout ),
+	.cout(\U_OLED_driver|Add1~34 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~33 .lut_mask = 16'hC30C;
+defparam \U_OLED_driver|Add1~33 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N22
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~38 (
+// Equation(s):
+// \U_OLED_driver|Add1~38_combout  = (\U_OLED_driver|LessThan1~0_combout  & (\U_OLED_driver|LessThan1~4_combout  & \U_OLED_driver|Add1~33_combout ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|LessThan1~0_combout ),
+	.datac(\U_OLED_driver|LessThan1~4_combout ),
+	.datad(\U_OLED_driver|Add1~33_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~38_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~38 .lut_mask = 16'hC000;
+defparam \U_OLED_driver|Add1~38 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X11_Y6_N23
+dffeas \U_OLED_driver|cnt[14] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~38_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [14]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[14] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[14] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X10_Y6_N30
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~35 (
+// Equation(s):
+// \U_OLED_driver|Add1~35_combout  = \U_OLED_driver|cnt [15] $ (\U_OLED_driver|Add1~34 )
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt [15]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\U_OLED_driver|Add1~34 ),
+	.combout(\U_OLED_driver|Add1~35_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~35 .lut_mask = 16'h3C3C;
+defparam \U_OLED_driver|Add1~35 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N8
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~37 (
+// Equation(s):
+// \U_OLED_driver|Add1~37_combout  = (\U_OLED_driver|LessThan1~0_combout  & (\U_OLED_driver|LessThan1~4_combout  & \U_OLED_driver|Add1~35_combout ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|LessThan1~0_combout ),
+	.datac(\U_OLED_driver|LessThan1~4_combout ),
+	.datad(\U_OLED_driver|Add1~35_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~37_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~37 .lut_mask = 16'hC000;
+defparam \U_OLED_driver|Add1~37 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X11_Y6_N9
+dffeas \U_OLED_driver|cnt[15] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~37_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [15]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[15] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[15] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N4
+fiftyfivenm_lcell_comb \U_OLED_driver|LessThan1~1 (
+// Equation(s):
+// \U_OLED_driver|LessThan1~1_combout  = (!\U_OLED_driver|cnt [12] & (!\U_OLED_driver|cnt [15] & (!\U_OLED_driver|cnt [14] & !\U_OLED_driver|cnt [13])))
+
+	.dataa(\U_OLED_driver|cnt [12]),
+	.datab(\U_OLED_driver|cnt [15]),
+	.datac(\U_OLED_driver|cnt [14]),
+	.datad(\U_OLED_driver|cnt [13]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|LessThan1~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|LessThan1~1 .lut_mask = 16'h0001;
+defparam \U_OLED_driver|LessThan1~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N14
+fiftyfivenm_lcell_comb \U_OLED_driver|LessThan1~3 (
+// Equation(s):
+// \U_OLED_driver|LessThan1~3_combout  = ((!\U_OLED_driver|cnt [2] & (!\U_OLED_driver|cnt [1] & !\U_OLED_driver|cnt [0]))) # (!\U_OLED_driver|cnt [4])
+
+	.dataa(\U_OLED_driver|cnt [2]),
+	.datab(\U_OLED_driver|cnt [4]),
+	.datac(\U_OLED_driver|cnt [1]),
+	.datad(\U_OLED_driver|cnt [0]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|LessThan1~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|LessThan1~3 .lut_mask = 16'h3337;
+defparam \U_OLED_driver|LessThan1~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X9_Y6_N14
+fiftyfivenm_lcell_comb \U_OLED_driver|LessThan1~2 (
+// Equation(s):
+// \U_OLED_driver|LessThan1~2_combout  = (!\U_OLED_driver|cnt [9] & (!\U_OLED_driver|cnt [11] & (!\U_OLED_driver|cnt [8] & !\U_OLED_driver|cnt [10])))
+
+	.dataa(\U_OLED_driver|cnt [9]),
+	.datab(\U_OLED_driver|cnt [11]),
+	.datac(\U_OLED_driver|cnt [8]),
+	.datad(\U_OLED_driver|cnt [10]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|LessThan1~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|LessThan1~2 .lut_mask = 16'h0001;
+defparam \U_OLED_driver|LessThan1~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N24
+fiftyfivenm_lcell_comb \U_OLED_driver|LessThan1~4 (
+// Equation(s):
+// \U_OLED_driver|LessThan1~4_combout  = (\U_OLED_driver|LessThan1~1_combout  & (\U_OLED_driver|LessThan1~2_combout  & ((\U_OLED_driver|LessThan1~3_combout ) # (!\U_OLED_driver|cnt [3]))))
+
+	.dataa(\U_OLED_driver|cnt [3]),
+	.datab(\U_OLED_driver|LessThan1~1_combout ),
+	.datac(\U_OLED_driver|LessThan1~3_combout ),
+	.datad(\U_OLED_driver|LessThan1~2_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|LessThan1~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|LessThan1~4 .lut_mask = 16'hC400;
+defparam \U_OLED_driver|LessThan1~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X9_Y6_N10
+fiftyfivenm_lcell_comb \U_OLED_driver|Add1~19 (
+// Equation(s):
+// \U_OLED_driver|Add1~19_combout  = (\U_OLED_driver|LessThan1~4_combout  & (\U_OLED_driver|LessThan1~0_combout  & \U_OLED_driver|Add1~14_combout ))
+
+	.dataa(\U_OLED_driver|LessThan1~4_combout ),
+	.datab(\U_OLED_driver|LessThan1~0_combout ),
+	.datac(\U_OLED_driver|Add1~14_combout ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add1~19_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add1~19 .lut_mask = 16'h8080;
+defparam \U_OLED_driver|Add1~19 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X9_Y6_N11
+dffeas \U_OLED_driver|cnt[6] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add1~19_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.INIT~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add1~50_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt[6] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X9_Y6_N22
+fiftyfivenm_lcell_comb \U_OLED_driver|LessThan1~5 (
+// Equation(s):
+// \U_OLED_driver|LessThan1~5_combout  = (!\U_OLED_driver|cnt [6] & (!\U_OLED_driver|cnt [7] & (\U_OLED_driver|LessThan1~4_combout  & !\U_OLED_driver|cnt [5])))
+
+	.dataa(\U_OLED_driver|cnt [6]),
+	.datab(\U_OLED_driver|cnt [7]),
+	.datac(\U_OLED_driver|LessThan1~4_combout ),
+	.datad(\U_OLED_driver|cnt [5]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|LessThan1~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|LessThan1~5 .lut_mask = 16'h0010;
+defparam \U_OLED_driver|LessThan1~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N10
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector77~0 (
+// Equation(s):
+// \U_OLED_driver|Selector77~0_combout  = (!\U_OLED_driver|cnt_init [1] & (!\U_OLED_driver|cnt_init [0] & \U_OLED_driver|cnt_init [2]))
+
+	.dataa(\U_OLED_driver|cnt_init [1]),
+	.datab(gnd),
+	.datac(\U_OLED_driver|cnt_init [0]),
+	.datad(\U_OLED_driver|cnt_init [2]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector77~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector77~0 .lut_mask = 16'h0500;
+defparam \U_OLED_driver|Selector77~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N10
+fiftyfivenm_lcell_comb \U_OLED_driver|Add2~0 (
+// Equation(s):
+// \U_OLED_driver|Add2~0_combout  = \U_OLED_driver|cnt_scan [0] $ (VCC)
+// \U_OLED_driver|Add2~1  = CARRY(\U_OLED_driver|cnt_scan [0])
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_scan [0]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add2~0_combout ),
+	.cout(\U_OLED_driver|Add2~1 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add2~0 .lut_mask = 16'h33CC;
+defparam \U_OLED_driver|Add2~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N12
+fiftyfivenm_lcell_comb \U_OLED_driver|Add2~2 (
+// Equation(s):
+// \U_OLED_driver|Add2~2_combout  = (\U_OLED_driver|cnt_scan [1] & (!\U_OLED_driver|Add2~1 )) # (!\U_OLED_driver|cnt_scan [1] & ((\U_OLED_driver|Add2~1 ) # (GND)))
+// \U_OLED_driver|Add2~3  = CARRY((!\U_OLED_driver|Add2~1 ) # (!\U_OLED_driver|cnt_scan [1]))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_scan [1]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add2~1 ),
+	.combout(\U_OLED_driver|Add2~2_combout ),
+	.cout(\U_OLED_driver|Add2~3 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add2~2 .lut_mask = 16'h3C3F;
+defparam \U_OLED_driver|Add2~2 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N14
+fiftyfivenm_lcell_comb \U_OLED_driver|Add2~4 (
+// Equation(s):
+// \U_OLED_driver|Add2~4_combout  = (\U_OLED_driver|cnt_scan [2] & (\U_OLED_driver|Add2~3  $ (GND))) # (!\U_OLED_driver|cnt_scan [2] & (!\U_OLED_driver|Add2~3  & VCC))
+// \U_OLED_driver|Add2~5  = CARRY((\U_OLED_driver|cnt_scan [2] & !\U_OLED_driver|Add2~3 ))
+
+	.dataa(\U_OLED_driver|cnt_scan [2]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add2~3 ),
+	.combout(\U_OLED_driver|Add2~4_combout ),
+	.cout(\U_OLED_driver|Add2~5 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add2~4 .lut_mask = 16'hA50A;
+defparam \U_OLED_driver|Add2~4 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N30
+fiftyfivenm_lcell_comb \U_OLED_driver|Add2~10 (
+// Equation(s):
+// \U_OLED_driver|Add2~10_combout  = (!\U_OLED_driver|cnt_scan~0_combout  & \U_OLED_driver|Add2~4_combout )
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_scan~0_combout ),
+	.datac(\U_OLED_driver|Add2~4_combout ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add2~10_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add2~10 .lut_mask = 16'h3030;
+defparam \U_OLED_driver|Add2~10 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N6
+fiftyfivenm_lcell_comb \U_OLED_driver|Add2~9 (
+// Equation(s):
+// \U_OLED_driver|Add2~9_combout  = (\U_OLED_driver|state.SCAN~q ) # (!\U_OLED_driver|state.IDLE~q )
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|state.IDLE~q ),
+	.datac(gnd),
+	.datad(\U_OLED_driver|state.SCAN~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add2~9_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add2~9 .lut_mask = 16'hFF33;
+defparam \U_OLED_driver|Add2~9 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X15_Y4_N31
+dffeas \U_OLED_driver|cnt_scan[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add2~10_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.SCAN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add2~9_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_scan [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_scan[2] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_scan[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N16
+fiftyfivenm_lcell_comb \U_OLED_driver|Add2~6 (
+// Equation(s):
+// \U_OLED_driver|Add2~6_combout  = (\U_OLED_driver|cnt_scan [3] & (!\U_OLED_driver|Add2~5 )) # (!\U_OLED_driver|cnt_scan [3] & ((\U_OLED_driver|Add2~5 ) # (GND)))
+// \U_OLED_driver|Add2~7  = CARRY((!\U_OLED_driver|Add2~5 ) # (!\U_OLED_driver|cnt_scan [3]))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_scan [3]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add2~5 ),
+	.combout(\U_OLED_driver|Add2~6_combout ),
+	.cout(\U_OLED_driver|Add2~7 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add2~6 .lut_mask = 16'h3C3F;
+defparam \U_OLED_driver|Add2~6 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N28
+fiftyfivenm_lcell_comb \U_OLED_driver|Add2~8 (
+// Equation(s):
+// \U_OLED_driver|Add2~8_combout  = (\U_OLED_driver|Add2~6_combout  & !\U_OLED_driver|cnt_scan~0_combout )
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|Add2~6_combout ),
+	.datac(\U_OLED_driver|cnt_scan~0_combout ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add2~8_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add2~8 .lut_mask = 16'h0C0C;
+defparam \U_OLED_driver|Add2~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X15_Y4_N29
+dffeas \U_OLED_driver|cnt_scan[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add2~8_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.SCAN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add2~9_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_scan [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_scan[3] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_scan[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N18
+fiftyfivenm_lcell_comb \U_OLED_driver|Add2~11 (
+// Equation(s):
+// \U_OLED_driver|Add2~11_combout  = \U_OLED_driver|Add2~7  $ (!\U_OLED_driver|cnt_scan [4])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\U_OLED_driver|cnt_scan [4]),
+	.cin(\U_OLED_driver|Add2~7 ),
+	.combout(\U_OLED_driver|Add2~11_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add2~11 .lut_mask = 16'hF00F;
+defparam \U_OLED_driver|Add2~11 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N0
+fiftyfivenm_lcell_comb \U_OLED_driver|Add2~13 (
+// Equation(s):
+// \U_OLED_driver|Add2~13_combout  = (\U_OLED_driver|Add2~11_combout  & !\U_OLED_driver|cnt_scan~0_combout )
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|Add2~11_combout ),
+	.datac(\U_OLED_driver|cnt_scan~0_combout ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add2~13_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add2~13 .lut_mask = 16'h0C0C;
+defparam \U_OLED_driver|Add2~13 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X15_Y4_N1
+dffeas \U_OLED_driver|cnt_scan[4] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add2~13_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.SCAN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add2~9_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_scan [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_scan[4] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_scan[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N14
+fiftyfivenm_lcell_comb \U_OLED_driver|Add4~0 (
+// Equation(s):
+// \U_OLED_driver|Add4~0_combout  = \U_OLED_driver|cnt_write [0] $ (VCC)
+// \U_OLED_driver|Add4~1  = CARRY(\U_OLED_driver|cnt_write [0])
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_write [0]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add4~0_combout ),
+	.cout(\U_OLED_driver|Add4~1 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add4~0 .lut_mask = 16'h33CC;
+defparam \U_OLED_driver|Add4~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N8
+fiftyfivenm_lcell_comb \U_OLED_driver|Add4~11 (
+// Equation(s):
+// \U_OLED_driver|Add4~11_combout  = (\U_OLED_driver|Add4~0_combout  & ((\U_OLED_driver|WideOr52~0_combout ) # (!\U_OLED_driver|cnt_write [4])))
+
+	.dataa(\U_OLED_driver|cnt_write [4]),
+	.datab(\U_OLED_driver|WideOr52~0_combout ),
+	.datac(\U_OLED_driver|Add4~0_combout ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add4~11_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add4~11 .lut_mask = 16'hD0D0;
+defparam \U_OLED_driver|Add4~11 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N12
+fiftyfivenm_lcell_comb \U_OLED_driver|WideOr60~0 (
+// Equation(s):
+// \U_OLED_driver|WideOr60~0_combout  = (\U_OLED_driver|state.WRITE~q ) # (!\U_OLED_driver|state.IDLE~q )
+
+	.dataa(\U_OLED_driver|state.WRITE~q ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\U_OLED_driver|state.IDLE~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|WideOr60~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|WideOr60~0 .lut_mask = 16'hAAFF;
+defparam \U_OLED_driver|WideOr60~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y5_N9
+dffeas \U_OLED_driver|cnt_write[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add4~11_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.WRITE~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|WideOr60~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_write [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_write[0] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_write[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N16
+fiftyfivenm_lcell_comb \U_OLED_driver|Add4~2 (
+// Equation(s):
+// \U_OLED_driver|Add4~2_combout  = (\U_OLED_driver|cnt_write [1] & (!\U_OLED_driver|Add4~1 )) # (!\U_OLED_driver|cnt_write [1] & ((\U_OLED_driver|Add4~1 ) # (GND)))
+// \U_OLED_driver|Add4~3  = CARRY((!\U_OLED_driver|Add4~1 ) # (!\U_OLED_driver|cnt_write [1]))
+
+	.dataa(\U_OLED_driver|cnt_write [1]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add4~1 ),
+	.combout(\U_OLED_driver|Add4~2_combout ),
+	.cout(\U_OLED_driver|Add4~3 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add4~2 .lut_mask = 16'h5A5F;
+defparam \U_OLED_driver|Add4~2 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N30
+fiftyfivenm_lcell_comb \U_OLED_driver|Add4~14 (
+// Equation(s):
+// \U_OLED_driver|Add4~14_combout  = (\U_OLED_driver|Add4~2_combout  & ((\U_OLED_driver|WideOr52~0_combout ) # (!\U_OLED_driver|cnt_write [4])))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|WideOr52~0_combout ),
+	.datac(\U_OLED_driver|cnt_write [4]),
+	.datad(\U_OLED_driver|Add4~2_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add4~14_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add4~14 .lut_mask = 16'hCF00;
+defparam \U_OLED_driver|Add4~14 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y5_N31
+dffeas \U_OLED_driver|cnt_write[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add4~14_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.WRITE~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|WideOr60~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_write [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_write[1] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_write[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N18
+fiftyfivenm_lcell_comb \U_OLED_driver|Add4~4 (
+// Equation(s):
+// \U_OLED_driver|Add4~4_combout  = (\U_OLED_driver|cnt_write [2] & (\U_OLED_driver|Add4~3  $ (GND))) # (!\U_OLED_driver|cnt_write [2] & (!\U_OLED_driver|Add4~3  & VCC))
+// \U_OLED_driver|Add4~5  = CARRY((\U_OLED_driver|cnt_write [2] & !\U_OLED_driver|Add4~3 ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_write [2]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add4~3 ),
+	.combout(\U_OLED_driver|Add4~4_combout ),
+	.cout(\U_OLED_driver|Add4~5 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add4~4 .lut_mask = 16'hC30C;
+defparam \U_OLED_driver|Add4~4 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N2
+fiftyfivenm_lcell_comb \U_OLED_driver|Add4~12 (
+// Equation(s):
+// \U_OLED_driver|Add4~12_combout  = (\U_OLED_driver|Add4~4_combout  & ((\U_OLED_driver|WideOr52~0_combout ) # (!\U_OLED_driver|cnt_write [4])))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|WideOr52~0_combout ),
+	.datac(\U_OLED_driver|cnt_write [4]),
+	.datad(\U_OLED_driver|Add4~4_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add4~12_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add4~12 .lut_mask = 16'hCF00;
+defparam \U_OLED_driver|Add4~12 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y5_N3
+dffeas \U_OLED_driver|cnt_write[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add4~12_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.WRITE~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|WideOr60~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_write [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_write[2] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_write[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N4
+fiftyfivenm_lcell_comb \U_OLED_driver|WideOr52~0 (
+// Equation(s):
+// \U_OLED_driver|WideOr52~0_combout  = (!\U_OLED_driver|cnt_write [1] & (!\U_OLED_driver|cnt_write [3] & (!\U_OLED_driver|cnt_write [0] & !\U_OLED_driver|cnt_write [2])))
+
+	.dataa(\U_OLED_driver|cnt_write [1]),
+	.datab(\U_OLED_driver|cnt_write [3]),
+	.datac(\U_OLED_driver|cnt_write [0]),
+	.datad(\U_OLED_driver|cnt_write [2]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|WideOr52~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|WideOr52~0 .lut_mask = 16'h0001;
+defparam \U_OLED_driver|WideOr52~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N20
+fiftyfivenm_lcell_comb \U_OLED_driver|Add4~6 (
+// Equation(s):
+// \U_OLED_driver|Add4~6_combout  = (\U_OLED_driver|cnt_write [3] & (!\U_OLED_driver|Add4~5 )) # (!\U_OLED_driver|cnt_write [3] & ((\U_OLED_driver|Add4~5 ) # (GND)))
+// \U_OLED_driver|Add4~7  = CARRY((!\U_OLED_driver|Add4~5 ) # (!\U_OLED_driver|cnt_write [3]))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_write [3]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add4~5 ),
+	.combout(\U_OLED_driver|Add4~6_combout ),
+	.cout(\U_OLED_driver|Add4~7 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add4~6 .lut_mask = 16'h3C3F;
+defparam \U_OLED_driver|Add4~6 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N28
+fiftyfivenm_lcell_comb \U_OLED_driver|Add4~13 (
+// Equation(s):
+// \U_OLED_driver|Add4~13_combout  = (\U_OLED_driver|Add4~6_combout  & ((\U_OLED_driver|WideOr52~0_combout ) # (!\U_OLED_driver|cnt_write [4])))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|WideOr52~0_combout ),
+	.datac(\U_OLED_driver|cnt_write [4]),
+	.datad(\U_OLED_driver|Add4~6_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add4~13_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add4~13 .lut_mask = 16'hCF00;
+defparam \U_OLED_driver|Add4~13 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y5_N29
+dffeas \U_OLED_driver|cnt_write[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add4~13_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.WRITE~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|WideOr60~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_write [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_write[3] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_write[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N22
+fiftyfivenm_lcell_comb \U_OLED_driver|Add4~8 (
+// Equation(s):
+// \U_OLED_driver|Add4~8_combout  = \U_OLED_driver|cnt_write [4] $ (!\U_OLED_driver|Add4~7 )
+
+	.dataa(\U_OLED_driver|cnt_write [4]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\U_OLED_driver|Add4~7 ),
+	.combout(\U_OLED_driver|Add4~8_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add4~8 .lut_mask = 16'hA5A5;
+defparam \U_OLED_driver|Add4~8 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N26
+fiftyfivenm_lcell_comb \U_OLED_driver|Add4~10 (
+// Equation(s):
+// \U_OLED_driver|Add4~10_combout  = (\U_OLED_driver|Add4~8_combout  & ((\U_OLED_driver|WideOr52~0_combout ) # (!\U_OLED_driver|cnt_write [4])))
+
+	.dataa(\U_OLED_driver|Add4~8_combout ),
+	.datab(\U_OLED_driver|WideOr52~0_combout ),
+	.datac(\U_OLED_driver|cnt_write [4]),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add4~10_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add4~10 .lut_mask = 16'h8A8A;
+defparam \U_OLED_driver|Add4~10 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y5_N27
+dffeas \U_OLED_driver|cnt_write[4] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add4~10_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.WRITE~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|WideOr60~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_write [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_write[4] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_write[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N6
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector358~0 (
+// Equation(s):
+// \U_OLED_driver|Selector358~0_combout  = (\U_OLED_driver|state.WRITE~q  & ((\U_OLED_driver|WideOr52~0_combout ) # (!\U_OLED_driver|cnt_write [4])))
+
+	.dataa(\U_OLED_driver|cnt_write [4]),
+	.datab(gnd),
+	.datac(\U_OLED_driver|WideOr52~0_combout ),
+	.datad(\U_OLED_driver|state.WRITE~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector358~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector358~0 .lut_mask = 16'hF500;
+defparam \U_OLED_driver|Selector358~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N28
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector92~0 (
+// Equation(s):
+// \U_OLED_driver|Selector92~0_combout  = (\U_OLED_driver|cnt_scan [2] & (\U_OLED_driver|cnt_scan [3])) # (!\U_OLED_driver|cnt_scan [2] & (!\U_OLED_driver|cnt_scan [3] & (\U_OLED_driver|cnt_scan [0] & \U_OLED_driver|cnt_scan [1])))
+
+	.dataa(\U_OLED_driver|cnt_scan [2]),
+	.datab(\U_OLED_driver|cnt_scan [3]),
+	.datac(\U_OLED_driver|cnt_scan [0]),
+	.datad(\U_OLED_driver|cnt_scan [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector92~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector92~0 .lut_mask = 16'h9888;
+defparam \U_OLED_driver|Selector92~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X9_Y6_N28
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector358~1 (
+// Equation(s):
+// \U_OLED_driver|Selector358~1_combout  = (\U_OLED_driver|Selector358~0_combout ) # ((\U_OLED_driver|state.SCAN~q  & (!\U_OLED_driver|cnt_scan [4] & !\U_OLED_driver|Selector92~0_combout )))
+
+	.dataa(\U_OLED_driver|state.SCAN~q ),
+	.datab(\U_OLED_driver|cnt_scan [4]),
+	.datac(\U_OLED_driver|Selector358~0_combout ),
+	.datad(\U_OLED_driver|Selector92~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector358~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector358~1 .lut_mask = 16'hF0F2;
+defparam \U_OLED_driver|Selector358~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X9_Y6_N30
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector358~2 (
+// Equation(s):
+// \U_OLED_driver|Selector358~2_combout  = (\U_OLED_driver|Selector358~1_combout ) # ((\U_OLED_driver|LessThan1~5_combout  & (\U_OLED_driver|state.INIT~q  & \U_OLED_driver|Selector77~0_combout )))
+
+	.dataa(\U_OLED_driver|LessThan1~5_combout ),
+	.datab(\U_OLED_driver|state.INIT~q ),
+	.datac(\U_OLED_driver|Selector77~0_combout ),
+	.datad(\U_OLED_driver|Selector358~1_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector358~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector358~2 .lut_mask = 16'hFF80;
+defparam \U_OLED_driver|Selector358~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X9_Y6_N31
+dffeas \U_OLED_driver|state.WRITE (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector358~2_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|state.WRITE~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|state.WRITE .is_wysiwyg = "true";
+defparam \U_OLED_driver|state.WRITE .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N0
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector357~2 (
+// Equation(s):
+// \U_OLED_driver|Selector357~2_combout  = (\U_OLED_driver|state.INIT~q  & ((\U_OLED_driver|cnt_init [0]) # ((\U_OLED_driver|cnt_init [2] & \U_OLED_driver|cnt_init [1]))))
+
+	.dataa(\U_OLED_driver|cnt_init [0]),
+	.datab(\U_OLED_driver|state.INIT~q ),
+	.datac(\U_OLED_driver|cnt_init [2]),
+	.datad(\U_OLED_driver|cnt_init [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector357~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector357~2 .lut_mask = 16'hC888;
+defparam \U_OLED_driver|Selector357~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N10
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector357~3 (
+// Equation(s):
+// \U_OLED_driver|Selector357~3_combout  = (\U_OLED_driver|Selector357~2_combout ) # ((\U_OLED_driver|state.WRITE~q  & (!\U_OLED_driver|WideOr52~0_combout  & \U_OLED_driver|cnt_write [4])))
+
+	.dataa(\U_OLED_driver|state.WRITE~q ),
+	.datab(\U_OLED_driver|WideOr52~0_combout ),
+	.datac(\U_OLED_driver|cnt_write [4]),
+	.datad(\U_OLED_driver|Selector357~2_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector357~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector357~3 .lut_mask = 16'hFF20;
+defparam \U_OLED_driver|Selector357~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y5_N10
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector356~0 (
+// Equation(s):
+// \U_OLED_driver|Selector356~0_combout  = (!\U_OLED_driver|cnt_main [2] & (!\U_OLED_driver|cnt_main [1] & !\U_OLED_driver|cnt_main [0]))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_main [2]),
+	.datac(\U_OLED_driver|cnt_main [1]),
+	.datad(\U_OLED_driver|cnt_main [0]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector356~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector356~0 .lut_mask = 16'h0003;
+defparam \U_OLED_driver|Selector356~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N20
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector356~1 (
+// Equation(s):
+// \U_OLED_driver|Selector356~1_combout  = (!\U_OLED_driver|cnt_main [4] & (!\U_OLED_driver|cnt_main [3] & (!\U_OLED_driver|Selector357~3_combout  & \U_OLED_driver|Selector356~0_combout )))
+
+	.dataa(\U_OLED_driver|cnt_main [4]),
+	.datab(\U_OLED_driver|cnt_main [3]),
+	.datac(\U_OLED_driver|Selector357~3_combout ),
+	.datad(\U_OLED_driver|Selector356~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector356~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector356~1 .lut_mask = 16'h0100;
+defparam \U_OLED_driver|Selector356~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N26
+fiftyfivenm_lcell_comb \U_OLED_driver|char_reg[5]~1 (
+// Equation(s):
+// \U_OLED_driver|char_reg[5]~1_combout  = (!\U_OLED_driver|cnt_scan [2] & !\U_OLED_driver|cnt_scan [3])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\U_OLED_driver|cnt_scan [2]),
+	.datad(\U_OLED_driver|cnt_scan [3]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|char_reg[5]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|char_reg[5]~1 .lut_mask = 16'h000F;
+defparam \U_OLED_driver|char_reg[5]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N16
+fiftyfivenm_lcell_comb \U_OLED_driver|num[3]~2 (
+// Equation(s):
+// \U_OLED_driver|num[3]~2_combout  = (\U_OLED_driver|state.SCAN~q  & ((\U_OLED_driver|cnt_scan [4]) # ((!\U_OLED_driver|Equal0~0_combout ) # (!\U_OLED_driver|char_reg[5]~1_combout ))))
+
+	.dataa(\U_OLED_driver|cnt_scan [4]),
+	.datab(\U_OLED_driver|state.SCAN~q ),
+	.datac(\U_OLED_driver|char_reg[5]~1_combout ),
+	.datad(\U_OLED_driver|Equal0~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|num[3]~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|num[3]~2 .lut_mask = 16'h8CCC;
+defparam \U_OLED_driver|num[3]~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N0
+fiftyfivenm_lcell_comb \U_OLED_driver|Add0~0 (
+// Equation(s):
+// \U_OLED_driver|Add0~0_combout  = (\U_OLED_driver|state.MAIN~q ) # (!\U_OLED_driver|state.IDLE~q )
+
+	.dataa(\U_OLED_driver|state.IDLE~q ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\U_OLED_driver|state.MAIN~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add0~0 .lut_mask = 16'hFF55;
+defparam \U_OLED_driver|Add0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N8
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector356~2 (
+// Equation(s):
+// \U_OLED_driver|Selector356~2_combout  = (\U_OLED_driver|cnt_init [2] & (!\U_OLED_driver|state.SCAN~q  & \U_OLED_driver|state.INIT~q ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_init [2]),
+	.datac(\U_OLED_driver|state.SCAN~q ),
+	.datad(\U_OLED_driver|state.INIT~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector356~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector356~2 .lut_mask = 16'h0C00;
+defparam \U_OLED_driver|Selector356~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N20
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector356~3 (
+// Equation(s):
+// \U_OLED_driver|Selector356~3_combout  = (\U_OLED_driver|LessThan1~0_combout  & (\U_OLED_driver|Selector77~1_combout  & (\U_OLED_driver|Selector356~2_combout  & \U_OLED_driver|LessThan1~4_combout )))
+
+	.dataa(\U_OLED_driver|LessThan1~0_combout ),
+	.datab(\U_OLED_driver|Selector77~1_combout ),
+	.datac(\U_OLED_driver|Selector356~2_combout ),
+	.datad(\U_OLED_driver|LessThan1~4_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector356~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector356~3 .lut_mask = 16'h8000;
+defparam \U_OLED_driver|Selector356~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N6
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector356~4 (
+// Equation(s):
+// \U_OLED_driver|Selector356~4_combout  = (\U_OLED_driver|num[3]~2_combout ) # ((\U_OLED_driver|Add0~0_combout ) # ((\U_OLED_driver|Selector357~3_combout ) # (\U_OLED_driver|Selector356~3_combout )))
+
+	.dataa(\U_OLED_driver|num[3]~2_combout ),
+	.datab(\U_OLED_driver|Add0~0_combout ),
+	.datac(\U_OLED_driver|Selector357~3_combout ),
+	.datad(\U_OLED_driver|Selector356~3_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector356~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector356~4 .lut_mask = 16'hFFFE;
+defparam \U_OLED_driver|Selector356~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y6_N21
+dffeas \U_OLED_driver|state.INIT (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector356~1_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.MAIN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Selector356~4_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|state.INIT~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|state.INIT .is_wysiwyg = "true";
+defparam \U_OLED_driver|state.INIT .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N26
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector359~1 (
+// Equation(s):
+// \U_OLED_driver|Selector359~1_combout  = (\U_OLED_driver|state.DELAY~q ) # ((\U_OLED_driver|cnt_init [0] & (!\U_OLED_driver|cnt_init [2] & \U_OLED_driver|state.INIT~q )))
+
+	.dataa(\U_OLED_driver|cnt_init [0]),
+	.datab(\U_OLED_driver|state.DELAY~q ),
+	.datac(\U_OLED_driver|cnt_init [2]),
+	.datad(\U_OLED_driver|state.INIT~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector359~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector359~1 .lut_mask = 16'hCECC;
+defparam \U_OLED_driver|Selector359~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y5_N24
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector359~0 (
+// Equation(s):
+// \U_OLED_driver|Selector359~0_combout  = (!\U_OLED_driver|cnt_write [3] & (!\U_OLED_driver|cnt_write [1] & (!\U_OLED_driver|cnt_write [2] & \U_OLED_driver|state.WRITE~q )))
+
+	.dataa(\U_OLED_driver|cnt_write [3]),
+	.datab(\U_OLED_driver|cnt_write [1]),
+	.datac(\U_OLED_driver|cnt_write [2]),
+	.datad(\U_OLED_driver|state.WRITE~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector359~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector359~0 .lut_mask = 16'h0100;
+defparam \U_OLED_driver|Selector359~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y5_N0
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector359~2 (
+// Equation(s):
+// \U_OLED_driver|Selector359~2_combout  = (\U_OLED_driver|Selector359~1_combout ) # ((\U_OLED_driver|cnt_write [0] & (\U_OLED_driver|cnt_write [4] & \U_OLED_driver|Selector359~0_combout )))
+
+	.dataa(\U_OLED_driver|cnt_write [0]),
+	.datab(\U_OLED_driver|cnt_write [4]),
+	.datac(\U_OLED_driver|Selector359~1_combout ),
+	.datad(\U_OLED_driver|Selector359~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector359~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector359~2 .lut_mask = 16'hF8F0;
+defparam \U_OLED_driver|Selector359~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X16_Y5_N1
+dffeas \U_OLED_driver|state.DELAY (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector359~2_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|state.DELAY~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|state.DELAY .is_wysiwyg = "true";
+defparam \U_OLED_driver|state.DELAY .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N18
+fiftyfivenm_lcell_comb \U_OLED_driver|num[3]~3 (
+// Equation(s):
+// \U_OLED_driver|num[3]~3_combout  = (!\U_OLED_driver|state.INIT~q  & (!\U_OLED_driver|state.DELAY~q  & (!\U_OLED_driver|state.WRITE~q  & !\U_OLED_driver|num[3]~2_combout )))
+
+	.dataa(\U_OLED_driver|state.INIT~q ),
+	.datab(\U_OLED_driver|state.DELAY~q ),
+	.datac(\U_OLED_driver|state.WRITE~q ),
+	.datad(\U_OLED_driver|num[3]~2_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|num[3]~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|num[3]~3 .lut_mask = 16'h0001;
+defparam \U_OLED_driver|num[3]~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N4
+fiftyfivenm_lcell_comb \U_OLED_driver|num[0]~5 (
+// Equation(s):
+// \U_OLED_driver|num[0]~5_combout  = (\U_OLED_driver|num[3]~3_combout  & (((!\U_OLED_driver|num[0]~4_combout  & !\U_OLED_driver|cnt_main [4])) # (!\U_OLED_driver|state.MAIN~q )))
+
+	.dataa(\U_OLED_driver|state.MAIN~q ),
+	.datab(\U_OLED_driver|num[0]~4_combout ),
+	.datac(\U_OLED_driver|cnt_main [4]),
+	.datad(\U_OLED_driver|num[3]~3_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|num[0]~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|num[0]~5 .lut_mask = 16'h5700;
+defparam \U_OLED_driver|num[0]~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X15_Y6_N31
+dffeas \U_OLED_driver|num[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|num[0]~feeder_combout ),
+	.asdata(\U_OLED_driver|Add3~0_combout ),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\U_OLED_driver|state.SCAN~q ),
+	.ena(\U_OLED_driver|num[0]~5_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|num [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|num[0] .is_wysiwyg = "true";
+defparam \U_OLED_driver|num[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N14
+fiftyfivenm_lcell_comb \U_OLED_driver|Add3~2 (
+// Equation(s):
+// \U_OLED_driver|Add3~2_combout  = (\U_OLED_driver|num [1] & (\U_OLED_driver|Add3~1  & VCC)) # (!\U_OLED_driver|num [1] & (!\U_OLED_driver|Add3~1 ))
+// \U_OLED_driver|Add3~3  = CARRY((!\U_OLED_driver|num [1] & !\U_OLED_driver|Add3~1 ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|num [1]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add3~1 ),
+	.combout(\U_OLED_driver|Add3~2_combout ),
+	.cout(\U_OLED_driver|Add3~3 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add3~2 .lut_mask = 16'hC303;
+defparam \U_OLED_driver|Add3~2 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X15_Y6_N13
+dffeas \U_OLED_driver|num[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector155~0_combout ),
+	.asdata(\U_OLED_driver|Add3~2_combout ),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\U_OLED_driver|state.SCAN~q ),
+	.ena(\U_OLED_driver|num[0]~5_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|num [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|num[1] .is_wysiwyg = "true";
+defparam \U_OLED_driver|num[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N16
+fiftyfivenm_lcell_comb \U_OLED_driver|Add3~4 (
+// Equation(s):
+// \U_OLED_driver|Add3~4_combout  = (\U_OLED_driver|num [2] & ((GND) # (!\U_OLED_driver|Add3~3 ))) # (!\U_OLED_driver|num [2] & (\U_OLED_driver|Add3~3  $ (GND)))
+// \U_OLED_driver|Add3~5  = CARRY((\U_OLED_driver|num [2]) # (!\U_OLED_driver|Add3~3 ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|num [2]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add3~3 ),
+	.combout(\U_OLED_driver|Add3~4_combout ),
+	.cout(\U_OLED_driver|Add3~5 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add3~4 .lut_mask = 16'h3CCF;
+defparam \U_OLED_driver|Add3~4 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X15_Y6_N23
+dffeas \U_OLED_driver|num[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|num[2]~feeder_combout ),
+	.asdata(\U_OLED_driver|Add3~4_combout ),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\U_OLED_driver|state.SCAN~q ),
+	.ena(\U_OLED_driver|num[0]~5_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|num [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|num[2] .is_wysiwyg = "true";
+defparam \U_OLED_driver|num[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N18
+fiftyfivenm_lcell_comb \U_OLED_driver|Add3~6 (
+// Equation(s):
+// \U_OLED_driver|Add3~6_combout  = (\U_OLED_driver|num [3] & (\U_OLED_driver|Add3~5  & VCC)) # (!\U_OLED_driver|num [3] & (!\U_OLED_driver|Add3~5 ))
+// \U_OLED_driver|Add3~7  = CARRY((!\U_OLED_driver|num [3] & !\U_OLED_driver|Add3~5 ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|num [3]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add3~5 ),
+	.combout(\U_OLED_driver|Add3~6_combout ),
+	.cout(\U_OLED_driver|Add3~7 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add3~6 .lut_mask = 16'hC303;
+defparam \U_OLED_driver|Add3~6 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N0
+fiftyfivenm_lcell_comb \U_OLED_driver|Add3~19 (
+// Equation(s):
+// \U_OLED_driver|Add3~19_combout  = (\U_OLED_driver|state.SCAN~q  & \U_OLED_driver|Add3~6_combout )
+
+	.dataa(\U_OLED_driver|state.SCAN~q ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\U_OLED_driver|Add3~6_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add3~19_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add3~19 .lut_mask = 16'hAA00;
+defparam \U_OLED_driver|Add3~19 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y5_N6
+fiftyfivenm_lcell_comb \U_OLED_driver|WideOr19~0 (
+// Equation(s):
+// \U_OLED_driver|WideOr19~0_combout  = \U_OLED_driver|cnt_main [3] $ (((\U_OLED_driver|cnt_main [1]) # ((\U_OLED_driver|cnt_main [0]) # (\U_OLED_driver|cnt_main [2]))))
+
+	.dataa(\U_OLED_driver|cnt_main [1]),
+	.datab(\U_OLED_driver|cnt_main [0]),
+	.datac(\U_OLED_driver|cnt_main [3]),
+	.datad(\U_OLED_driver|cnt_main [2]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|WideOr19~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|WideOr19~0 .lut_mask = 16'h0F1E;
+defparam \U_OLED_driver|WideOr19~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N4
+fiftyfivenm_lcell_comb \U_OLED_driver|num[3]~6 (
+// Equation(s):
+// \U_OLED_driver|num[3]~6_combout  = (\U_OLED_driver|num[3]~3_combout  & (((\U_OLED_driver|WideOr19~0_combout  & !\U_OLED_driver|cnt_main [4])) # (!\U_OLED_driver|state.MAIN~q )))
+
+	.dataa(\U_OLED_driver|WideOr19~0_combout ),
+	.datab(\U_OLED_driver|cnt_main [4]),
+	.datac(\U_OLED_driver|state.MAIN~q ),
+	.datad(\U_OLED_driver|num[3]~3_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|num[3]~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|num[3]~6 .lut_mask = 16'h2F00;
+defparam \U_OLED_driver|num[3]~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y6_N1
+dffeas \U_OLED_driver|num[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add3~19_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\U_OLED_driver|num[3]~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|num [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|num[3] .is_wysiwyg = "true";
+defparam \U_OLED_driver|num[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N20
+fiftyfivenm_lcell_comb \U_OLED_driver|Add3~8 (
+// Equation(s):
+// \U_OLED_driver|Add3~8_combout  = (\U_OLED_driver|num [4] & ((GND) # (!\U_OLED_driver|Add3~7 ))) # (!\U_OLED_driver|num [4] & (\U_OLED_driver|Add3~7  $ (GND)))
+// \U_OLED_driver|Add3~9  = CARRY((\U_OLED_driver|num [4]) # (!\U_OLED_driver|Add3~7 ))
+
+	.dataa(\U_OLED_driver|num [4]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add3~7 ),
+	.combout(\U_OLED_driver|Add3~8_combout ),
+	.cout(\U_OLED_driver|Add3~9 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add3~8 .lut_mask = 16'h5AAF;
+defparam \U_OLED_driver|Add3~8 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X15_Y6_N21
+dffeas \U_OLED_driver|num[4] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|num[4]~feeder_combout ),
+	.asdata(\U_OLED_driver|Add3~8_combout ),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\U_OLED_driver|state.SCAN~q ),
+	.ena(\U_OLED_driver|num[0]~5_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|num [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|num[4] .is_wysiwyg = "true";
+defparam \U_OLED_driver|num[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N22
+fiftyfivenm_lcell_comb \U_OLED_driver|Add3~10 (
+// Equation(s):
+// \U_OLED_driver|Add3~10_combout  = (\U_OLED_driver|num [5] & (\U_OLED_driver|Add3~9  & VCC)) # (!\U_OLED_driver|num [5] & (!\U_OLED_driver|Add3~9 ))
+// \U_OLED_driver|Add3~11  = CARRY((!\U_OLED_driver|num [5] & !\U_OLED_driver|Add3~9 ))
+
+	.dataa(\U_OLED_driver|num [5]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add3~9 ),
+	.combout(\U_OLED_driver|Add3~10_combout ),
+	.cout(\U_OLED_driver|Add3~11 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add3~10 .lut_mask = 16'hA505;
+defparam \U_OLED_driver|Add3~10 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N10
+fiftyfivenm_lcell_comb \U_OLED_driver|Add3~18 (
+// Equation(s):
+// \U_OLED_driver|Add3~18_combout  = (\U_OLED_driver|Add3~10_combout  & \U_OLED_driver|state.SCAN~q )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\U_OLED_driver|Add3~10_combout ),
+	.datad(\U_OLED_driver|state.SCAN~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add3~18_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add3~18 .lut_mask = 16'hF000;
+defparam \U_OLED_driver|Add3~18 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y6_N11
+dffeas \U_OLED_driver|num[5] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add3~18_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\U_OLED_driver|num[3]~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|num [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|num[5] .is_wysiwyg = "true";
+defparam \U_OLED_driver|num[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N24
+fiftyfivenm_lcell_comb \U_OLED_driver|Add3~12 (
+// Equation(s):
+// \U_OLED_driver|Add3~12_combout  = (\U_OLED_driver|num [6] & ((GND) # (!\U_OLED_driver|Add3~11 ))) # (!\U_OLED_driver|num [6] & (\U_OLED_driver|Add3~11  $ (GND)))
+// \U_OLED_driver|Add3~13  = CARRY((\U_OLED_driver|num [6]) # (!\U_OLED_driver|Add3~11 ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|num [6]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add3~11 ),
+	.combout(\U_OLED_driver|Add3~12_combout ),
+	.cout(\U_OLED_driver|Add3~13 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add3~12 .lut_mask = 16'h3CCF;
+defparam \U_OLED_driver|Add3~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N8
+fiftyfivenm_lcell_comb \U_OLED_driver|Add3~17 (
+// Equation(s):
+// \U_OLED_driver|Add3~17_combout  = (\U_OLED_driver|state.SCAN~q  & \U_OLED_driver|Add3~12_combout )
+
+	.dataa(\U_OLED_driver|state.SCAN~q ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\U_OLED_driver|Add3~12_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add3~17_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add3~17 .lut_mask = 16'hAA00;
+defparam \U_OLED_driver|Add3~17 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y6_N9
+dffeas \U_OLED_driver|num[6] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add3~17_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\U_OLED_driver|num[3]~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|num [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|num[6] .is_wysiwyg = "true";
+defparam \U_OLED_driver|num[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N26
+fiftyfivenm_lcell_comb \U_OLED_driver|Add3~14 (
+// Equation(s):
+// \U_OLED_driver|Add3~14_combout  = \U_OLED_driver|Add3~13  $ (!\U_OLED_driver|num [7])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\U_OLED_driver|num [7]),
+	.cin(\U_OLED_driver|Add3~13 ),
+	.combout(\U_OLED_driver|Add3~14_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add3~14 .lut_mask = 16'hF00F;
+defparam \U_OLED_driver|Add3~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N2
+fiftyfivenm_lcell_comb \U_OLED_driver|Add3~16 (
+// Equation(s):
+// \U_OLED_driver|Add3~16_combout  = (\U_OLED_driver|Add3~14_combout  & \U_OLED_driver|state.SCAN~q )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\U_OLED_driver|Add3~14_combout ),
+	.datad(\U_OLED_driver|state.SCAN~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add3~16_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add3~16 .lut_mask = 16'hF000;
+defparam \U_OLED_driver|Add3~16 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y6_N3
+dffeas \U_OLED_driver|num[7] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add3~16_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\U_OLED_driver|num[3]~6_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|num [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|num[7] .is_wysiwyg = "true";
+defparam \U_OLED_driver|num[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y6_N30
+fiftyfivenm_lcell_comb \U_OLED_driver|WideOr41~0 (
+// Equation(s):
+// \U_OLED_driver|WideOr41~0_combout  = (\U_OLED_driver|num [5]) # ((\U_OLED_driver|num [3]) # ((\U_OLED_driver|num [6]) # (\U_OLED_driver|num [7])))
+
+	.dataa(\U_OLED_driver|num [5]),
+	.datab(\U_OLED_driver|num [3]),
+	.datac(\U_OLED_driver|num [6]),
+	.datad(\U_OLED_driver|num [7]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|WideOr41~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|WideOr41~0 .lut_mask = 16'hFFFE;
+defparam \U_OLED_driver|WideOr41~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N28
+fiftyfivenm_lcell_comb \U_OLED_driver|WideOr41~1 (
+// Equation(s):
+// \U_OLED_driver|WideOr41~1_combout  = (\U_OLED_driver|num [0]) # ((\U_OLED_driver|num [4]) # ((\U_OLED_driver|num [2]) # (\U_OLED_driver|num [1])))
+
+	.dataa(\U_OLED_driver|num [0]),
+	.datab(\U_OLED_driver|num [4]),
+	.datac(\U_OLED_driver|num [2]),
+	.datad(\U_OLED_driver|num [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|WideOr41~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|WideOr41~1 .lut_mask = 16'hFFFE;
+defparam \U_OLED_driver|WideOr41~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N4
+fiftyfivenm_lcell_comb \U_OLED_driver|cnt_scan~0 (
+// Equation(s):
+// \U_OLED_driver|cnt_scan~0_combout  = (\U_OLED_driver|Selector355~0_combout ) # ((\U_OLED_driver|Equal0~1_combout  & ((\U_OLED_driver|WideOr41~0_combout ) # (\U_OLED_driver|WideOr41~1_combout ))))
+
+	.dataa(\U_OLED_driver|WideOr41~0_combout ),
+	.datab(\U_OLED_driver|Equal0~1_combout ),
+	.datac(\U_OLED_driver|Selector355~0_combout ),
+	.datad(\U_OLED_driver|WideOr41~1_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|cnt_scan~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_scan~0 .lut_mask = 16'hFCF8;
+defparam \U_OLED_driver|cnt_scan~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N26
+fiftyfivenm_lcell_comb \U_OLED_driver|Add2~14 (
+// Equation(s):
+// \U_OLED_driver|Add2~14_combout  = (\U_OLED_driver|cnt_scan~0_combout  & ((\U_OLED_driver|Equal0~1_combout ))) # (!\U_OLED_driver|cnt_scan~0_combout  & (\U_OLED_driver|Add2~2_combout ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_scan~0_combout ),
+	.datac(\U_OLED_driver|Add2~2_combout ),
+	.datad(\U_OLED_driver|Equal0~1_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add2~14_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add2~14 .lut_mask = 16'hFC30;
+defparam \U_OLED_driver|Add2~14 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X15_Y4_N27
+dffeas \U_OLED_driver|cnt_scan[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add2~14_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.SCAN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add2~9_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_scan [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_scan[1] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_scan[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N20
+fiftyfivenm_lcell_comb \U_OLED_driver|Equal0~0 (
+// Equation(s):
+// \U_OLED_driver|Equal0~0_combout  = (\U_OLED_driver|cnt_scan [1] & \U_OLED_driver|cnt_scan [0])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\U_OLED_driver|cnt_scan [1]),
+	.datad(\U_OLED_driver|cnt_scan [0]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Equal0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Equal0~0 .lut_mask = 16'hF000;
+defparam \U_OLED_driver|Equal0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N2
+fiftyfivenm_lcell_comb \U_OLED_driver|Equal0~1 (
+// Equation(s):
+// \U_OLED_driver|Equal0~1_combout  = (\U_OLED_driver|Equal0~0_combout  & (!\U_OLED_driver|cnt_scan [2] & (\U_OLED_driver|cnt_scan [3] & !\U_OLED_driver|cnt_scan [4])))
+
+	.dataa(\U_OLED_driver|Equal0~0_combout ),
+	.datab(\U_OLED_driver|cnt_scan [2]),
+	.datac(\U_OLED_driver|cnt_scan [3]),
+	.datad(\U_OLED_driver|cnt_scan [4]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Equal0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Equal0~1 .lut_mask = 16'h0020;
+defparam \U_OLED_driver|Equal0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N24
+fiftyfivenm_lcell_comb \U_OLED_driver|Add2~15 (
+// Equation(s):
+// \U_OLED_driver|Add2~15_combout  = (\U_OLED_driver|cnt_scan~0_combout  & (\U_OLED_driver|Equal0~1_combout )) # (!\U_OLED_driver|cnt_scan~0_combout  & ((\U_OLED_driver|Add2~0_combout )))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|Equal0~1_combout ),
+	.datac(\U_OLED_driver|cnt_scan~0_combout ),
+	.datad(\U_OLED_driver|Add2~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add2~15_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add2~15 .lut_mask = 16'hCFC0;
+defparam \U_OLED_driver|Add2~15 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X15_Y4_N25
+dffeas \U_OLED_driver|cnt_scan[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add2~15_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.SCAN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add2~9_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_scan [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_scan[0] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_scan[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N22
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector332~0 (
+// Equation(s):
+// \U_OLED_driver|Selector332~0_combout  = (!\U_OLED_driver|cnt_scan [0] & !\U_OLED_driver|cnt_scan [4])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\U_OLED_driver|cnt_scan [0]),
+	.datad(\U_OLED_driver|cnt_scan [4]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector332~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector332~0 .lut_mask = 16'h000F;
+defparam \U_OLED_driver|Selector332~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y4_N8
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector355~0 (
+// Equation(s):
+// \U_OLED_driver|Selector355~0_combout  = (\U_OLED_driver|Selector332~0_combout  & (\U_OLED_driver|cnt_scan [3] & (!\U_OLED_driver|cnt_scan [1] & \U_OLED_driver|cnt_scan [2])))
+
+	.dataa(\U_OLED_driver|Selector332~0_combout ),
+	.datab(\U_OLED_driver|cnt_scan [3]),
+	.datac(\U_OLED_driver|cnt_scan [1]),
+	.datad(\U_OLED_driver|cnt_scan [2]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector355~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector355~0 .lut_mask = 16'h0800;
+defparam \U_OLED_driver|Selector355~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y5_N8
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector355~1 (
+// Equation(s):
+// \U_OLED_driver|Selector355~1_combout  = (\U_OLED_driver|state.INIT~q  & (\U_OLED_driver|cnt_init [2] & (!\U_OLED_driver|cnt_init [1] & \U_OLED_driver|cnt_init [0])))
+
+	.dataa(\U_OLED_driver|state.INIT~q ),
+	.datab(\U_OLED_driver|cnt_init [2]),
+	.datac(\U_OLED_driver|cnt_init [1]),
+	.datad(\U_OLED_driver|cnt_init [0]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector355~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector355~1 .lut_mask = 16'h0800;
+defparam \U_OLED_driver|Selector355~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N24
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector355~2 (
+// Equation(s):
+// \U_OLED_driver|Selector355~2_combout  = ((\U_OLED_driver|Selector355~1_combout ) # ((\U_OLED_driver|Selector355~0_combout  & \U_OLED_driver|state.SCAN~q ))) # (!\U_OLED_driver|state.IDLE~q )
+
+	.dataa(\U_OLED_driver|state.IDLE~q ),
+	.datab(\U_OLED_driver|Selector355~0_combout ),
+	.datac(\U_OLED_driver|state.SCAN~q ),
+	.datad(\U_OLED_driver|Selector355~1_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector355~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector355~2 .lut_mask = 16'hFFD5;
+defparam \U_OLED_driver|Selector355~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X15_Y5_N25
+dffeas \U_OLED_driver|state.MAIN (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector355~2_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|state.MAIN~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|state.MAIN .is_wysiwyg = "true";
+defparam \U_OLED_driver|state.MAIN .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X14_Y5_N25
+dffeas \U_OLED_driver|cnt_main[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add0~3_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.MAIN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add0~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_main [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_main[0] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_main[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y5_N14
+fiftyfivenm_lcell_comb \U_OLED_driver|Add0~4 (
+// Equation(s):
+// \U_OLED_driver|Add0~4_combout  = (\U_OLED_driver|cnt_main [1] & (!\U_OLED_driver|Add0~2 )) # (!\U_OLED_driver|cnt_main [1] & ((\U_OLED_driver|Add0~2 ) # (GND)))
+// \U_OLED_driver|Add0~5  = CARRY((!\U_OLED_driver|Add0~2 ) # (!\U_OLED_driver|cnt_main [1]))
+
+	.dataa(\U_OLED_driver|cnt_main [1]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add0~2 ),
+	.combout(\U_OLED_driver|Add0~4_combout ),
+	.cout(\U_OLED_driver|Add0~5 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add0~4 .lut_mask = 16'h5A5F;
+defparam \U_OLED_driver|Add0~4 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y5_N30
+fiftyfivenm_lcell_comb \U_OLED_driver|Add0~6 (
+// Equation(s):
+// \U_OLED_driver|Add0~6_combout  = (!\U_OLED_driver|cnt_main [3] & (!\U_OLED_driver|cnt_main [4] & \U_OLED_driver|Add0~4_combout ))
+
+	.dataa(\U_OLED_driver|cnt_main [3]),
+	.datab(\U_OLED_driver|cnt_main [4]),
+	.datac(\U_OLED_driver|Add0~4_combout ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add0~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add0~6 .lut_mask = 16'h1010;
+defparam \U_OLED_driver|Add0~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y5_N31
+dffeas \U_OLED_driver|cnt_main[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add0~6_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.MAIN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add0~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_main [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_main[1] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_main[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y5_N16
+fiftyfivenm_lcell_comb \U_OLED_driver|Add0~7 (
+// Equation(s):
+// \U_OLED_driver|Add0~7_combout  = (\U_OLED_driver|cnt_main [2] & (\U_OLED_driver|Add0~5  $ (GND))) # (!\U_OLED_driver|cnt_main [2] & (!\U_OLED_driver|Add0~5  & VCC))
+// \U_OLED_driver|Add0~8  = CARRY((\U_OLED_driver|cnt_main [2] & !\U_OLED_driver|Add0~5 ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_main [2]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add0~5 ),
+	.combout(\U_OLED_driver|Add0~7_combout ),
+	.cout(\U_OLED_driver|Add0~8 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add0~7 .lut_mask = 16'hC30C;
+defparam \U_OLED_driver|Add0~7 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y5_N4
+fiftyfivenm_lcell_comb \U_OLED_driver|Add0~9 (
+// Equation(s):
+// \U_OLED_driver|Add0~9_combout  = (\U_OLED_driver|cnt_main [4]) # ((\U_OLED_driver|cnt_main [3]) # (\U_OLED_driver|Add0~7_combout ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_main [4]),
+	.datac(\U_OLED_driver|cnt_main [3]),
+	.datad(\U_OLED_driver|Add0~7_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add0~9_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add0~9 .lut_mask = 16'hFFFC;
+defparam \U_OLED_driver|Add0~9 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y5_N5
+dffeas \U_OLED_driver|cnt_main[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add0~9_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.MAIN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add0~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_main [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_main[2] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_main[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y5_N18
+fiftyfivenm_lcell_comb \U_OLED_driver|Add0~10 (
+// Equation(s):
+// \U_OLED_driver|Add0~10_combout  = (\U_OLED_driver|cnt_main [3] & (!\U_OLED_driver|Add0~8 )) # (!\U_OLED_driver|cnt_main [3] & ((\U_OLED_driver|Add0~8 ) # (GND)))
+// \U_OLED_driver|Add0~11  = CARRY((!\U_OLED_driver|Add0~8 ) # (!\U_OLED_driver|cnt_main [3]))
+
+	.dataa(\U_OLED_driver|cnt_main [3]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\U_OLED_driver|Add0~8 ),
+	.combout(\U_OLED_driver|Add0~10_combout ),
+	.cout(\U_OLED_driver|Add0~11 ));
+// synopsys translate_off
+defparam \U_OLED_driver|Add0~10 .lut_mask = 16'h5A5F;
+defparam \U_OLED_driver|Add0~10 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y5_N26
+fiftyfivenm_lcell_comb \U_OLED_driver|Add0~12 (
+// Equation(s):
+// \U_OLED_driver|Add0~12_combout  = (!\U_OLED_driver|cnt_main [4] & (!\U_OLED_driver|cnt_main [3] & \U_OLED_driver|Add0~10_combout ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_main [4]),
+	.datac(\U_OLED_driver|cnt_main [3]),
+	.datad(\U_OLED_driver|Add0~10_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add0~12_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add0~12 .lut_mask = 16'h0300;
+defparam \U_OLED_driver|Add0~12 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y5_N27
+dffeas \U_OLED_driver|cnt_main[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add0~12_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.MAIN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add0~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_main [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_main[3] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_main[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y5_N20
+fiftyfivenm_lcell_comb \U_OLED_driver|Add0~13 (
+// Equation(s):
+// \U_OLED_driver|Add0~13_combout  = \U_OLED_driver|Add0~11  $ (!\U_OLED_driver|cnt_main [4])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\U_OLED_driver|cnt_main [4]),
+	.cin(\U_OLED_driver|Add0~11 ),
+	.combout(\U_OLED_driver|Add0~13_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add0~13 .lut_mask = 16'hF00F;
+defparam \U_OLED_driver|Add0~13 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y5_N28
+fiftyfivenm_lcell_comb \U_OLED_driver|Add0~15 (
+// Equation(s):
+// \U_OLED_driver|Add0~15_combout  = (!\U_OLED_driver|cnt_main [3] & (!\U_OLED_driver|cnt_main [4] & \U_OLED_driver|Add0~13_combout ))
+
+	.dataa(\U_OLED_driver|cnt_main [3]),
+	.datab(gnd),
+	.datac(\U_OLED_driver|cnt_main [4]),
+	.datad(\U_OLED_driver|Add0~13_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Add0~15_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Add0~15 .lut_mask = 16'h0500;
+defparam \U_OLED_driver|Add0~15 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y5_N29
+dffeas \U_OLED_driver|cnt_main[4] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Add0~15_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.MAIN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Add0~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|cnt_main [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|cnt_main[4] .is_wysiwyg = "true";
+defparam \U_OLED_driver|cnt_main[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N14
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector357~5 (
+// Equation(s):
+// \U_OLED_driver|Selector357~5_combout  = (!\U_OLED_driver|cnt_main [4] & (!\U_OLED_driver|Selector357~3_combout  & \U_OLED_driver|WideOr19~0_combout ))
+
+	.dataa(\U_OLED_driver|cnt_main [4]),
+	.datab(gnd),
+	.datac(\U_OLED_driver|Selector357~3_combout ),
+	.datad(\U_OLED_driver|WideOr19~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector357~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector357~5 .lut_mask = 16'h0500;
+defparam \U_OLED_driver|Selector357~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y6_N15
+dffeas \U_OLED_driver|state.SCAN (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector357~5_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.MAIN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Selector356~4_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|state.SCAN~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|state.SCAN .is_wysiwyg = "true";
+defparam \U_OLED_driver|state.SCAN .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N18
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector90~0 (
+// Equation(s):
+// \U_OLED_driver|Selector90~0_combout  = (\U_OLED_driver|cnt_scan [3] & (\U_OLED_driver|cnt_scan [2] & ((\U_OLED_driver|cnt_scan [0]) # (\U_OLED_driver|cnt_scan [1]))))
+
+	.dataa(\U_OLED_driver|cnt_scan [0]),
+	.datab(\U_OLED_driver|cnt_scan [3]),
+	.datac(\U_OLED_driver|cnt_scan [2]),
+	.datad(\U_OLED_driver|cnt_scan [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector90~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector90~0 .lut_mask = 16'hC080;
+defparam \U_OLED_driver|Selector90~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N16
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector354~1 (
+// Equation(s):
+// \U_OLED_driver|Selector354~1_combout  = (\U_OLED_driver|cnt_init [1] & (\U_OLED_driver|state.INIT~q  & \U_OLED_driver|cnt_init [2]))
+
+	.dataa(\U_OLED_driver|cnt_init [1]),
+	.datab(\U_OLED_driver|state.INIT~q ),
+	.datac(gnd),
+	.datad(\U_OLED_driver|cnt_init [2]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector354~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector354~1 .lut_mask = 16'h8800;
+defparam \U_OLED_driver|Selector354~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N4
+fiftyfivenm_lcell_comb \U_OLED_driver|WideOr0~0 (
+// Equation(s):
+// \U_OLED_driver|WideOr0~0_combout  = (\U_OLED_driver|cnt_main [3] & ((\U_OLED_driver|cnt_main [1]) # ((\U_OLED_driver|cnt_main [2]) # (\U_OLED_driver|cnt_main [0]))))
+
+	.dataa(\U_OLED_driver|cnt_main [3]),
+	.datab(\U_OLED_driver|cnt_main [1]),
+	.datac(\U_OLED_driver|cnt_main [2]),
+	.datad(\U_OLED_driver|cnt_main [0]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|WideOr0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|WideOr0~0 .lut_mask = 16'hAAA8;
+defparam \U_OLED_driver|WideOr0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N14
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector354~2 (
+// Equation(s):
+// \U_OLED_driver|Selector354~2_combout  = (\U_OLED_driver|Selector354~1_combout ) # ((\U_OLED_driver|state.MAIN~q  & ((\U_OLED_driver|cnt_main [4]) # (\U_OLED_driver|WideOr0~0_combout ))))
+
+	.dataa(\U_OLED_driver|Selector354~1_combout ),
+	.datab(\U_OLED_driver|cnt_main [4]),
+	.datac(\U_OLED_driver|WideOr0~0_combout ),
+	.datad(\U_OLED_driver|state.MAIN~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector354~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector354~2 .lut_mask = 16'hFEAA;
+defparam \U_OLED_driver|Selector354~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y5_N30
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector101~0 (
+// Equation(s):
+// \U_OLED_driver|Selector101~0_combout  = (\U_OLED_driver|cnt_write [4] & ((\U_OLED_driver|cnt_write [3]) # ((\U_OLED_driver|cnt_write [1]) # (\U_OLED_driver|cnt_write [2]))))
+
+	.dataa(\U_OLED_driver|cnt_write [3]),
+	.datab(\U_OLED_driver|cnt_write [1]),
+	.datac(\U_OLED_driver|cnt_write [2]),
+	.datad(\U_OLED_driver|cnt_write [4]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector101~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector101~0 .lut_mask = 16'hFE00;
+defparam \U_OLED_driver|Selector101~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y5_N28
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector354~0 (
+// Equation(s):
+// \U_OLED_driver|Selector354~0_combout  = (\U_OLED_driver|state.WRITE~q  & ((\U_OLED_driver|Selector101~0_combout ) # ((\U_OLED_driver|state.SCAN~q  & \U_OLED_driver|cnt_scan [4])))) # (!\U_OLED_driver|state.WRITE~q  & (\U_OLED_driver|state.SCAN~q  & 
+// ((\U_OLED_driver|cnt_scan [4]))))
+
+	.dataa(\U_OLED_driver|state.WRITE~q ),
+	.datab(\U_OLED_driver|state.SCAN~q ),
+	.datac(\U_OLED_driver|Selector101~0_combout ),
+	.datad(\U_OLED_driver|cnt_scan [4]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector354~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector354~0 .lut_mask = 16'hECA0;
+defparam \U_OLED_driver|Selector354~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N10
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector354~3 (
+// Equation(s):
+// \U_OLED_driver|Selector354~3_combout  = (!\U_OLED_driver|Selector354~2_combout  & (!\U_OLED_driver|Selector354~0_combout  & ((!\U_OLED_driver|Selector90~0_combout ) # (!\U_OLED_driver|state.SCAN~q ))))
+
+	.dataa(\U_OLED_driver|state.SCAN~q ),
+	.datab(\U_OLED_driver|Selector90~0_combout ),
+	.datac(\U_OLED_driver|Selector354~2_combout ),
+	.datad(\U_OLED_driver|Selector354~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector354~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector354~3 .lut_mask = 16'h0007;
+defparam \U_OLED_driver|Selector354~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X15_Y5_N11
+dffeas \U_OLED_driver|state.IDLE (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector354~3_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|state.IDLE~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|state.IDLE .is_wysiwyg = "true";
+defparam \U_OLED_driver|state.IDLE .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y5_N18
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector349~0 (
+// Equation(s):
+// \U_OLED_driver|Selector349~0_combout  = (\U_OLED_driver|cnt_write [0] & (((\U_OLED_driver|cnt_write [4] & \U_OLED_driver|Selector359~0_combout )) # (!\U_OLED_driver|oled_csn~q ))) # (!\U_OLED_driver|cnt_write [0] & (!\U_OLED_driver|oled_csn~q  & 
+// ((\U_OLED_driver|cnt_write [4]) # (!\U_OLED_driver|Selector359~0_combout ))))
+
+	.dataa(\U_OLED_driver|cnt_write [0]),
+	.datab(\U_OLED_driver|cnt_write [4]),
+	.datac(\U_OLED_driver|oled_csn~q ),
+	.datad(\U_OLED_driver|Selector359~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector349~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector349~0 .lut_mask = 16'h8E0F;
+defparam \U_OLED_driver|Selector349~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y5_N8
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector349~1 (
+// Equation(s):
+// \U_OLED_driver|Selector349~1_combout  = (!\U_OLED_driver|Selector349~0_combout  & ((\U_OLED_driver|state.IDLE~q ) # (\U_OLED_driver|state.WRITE~q )))
+
+	.dataa(\U_OLED_driver|state.IDLE~q ),
+	.datab(gnd),
+	.datac(\U_OLED_driver|state.WRITE~q ),
+	.datad(\U_OLED_driver|Selector349~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector349~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector349~1 .lut_mask = 16'h00FA;
+defparam \U_OLED_driver|Selector349~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X16_Y5_N9
+dffeas \U_OLED_driver|oled_csn (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector349~1_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|oled_csn~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|oled_csn .is_wysiwyg = "true";
+defparam \U_OLED_driver|oled_csn .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y6_N4
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector350~0 (
+// Equation(s):
+// \U_OLED_driver|Selector350~0_combout  = (\U_OLED_driver|state.INIT~q  & ((\U_OLED_driver|cnt_init [0]) # ((\U_OLED_driver|cnt_init [2])))) # (!\U_OLED_driver|state.INIT~q  & (((!\U_OLED_driver|state.IDLE~q ))))
+
+	.dataa(\U_OLED_driver|cnt_init [0]),
+	.datab(\U_OLED_driver|cnt_init [2]),
+	.datac(\U_OLED_driver|state.IDLE~q ),
+	.datad(\U_OLED_driver|state.INIT~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector350~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector350~0 .lut_mask = 16'hEE0F;
+defparam \U_OLED_driver|Selector350~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N10
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector350~1 (
+// Equation(s):
+// \U_OLED_driver|Selector350~1_combout  = (\U_OLED_driver|state.INIT~q  & ((\U_OLED_driver|Selector350~0_combout  & ((\U_OLED_driver|oled_rst~q ))) # (!\U_OLED_driver|Selector350~0_combout  & (!\U_OLED_driver|cnt_init [1])))) # (!\U_OLED_driver|state.INIT~q 
+//  & (((\U_OLED_driver|oled_rst~q  & !\U_OLED_driver|Selector350~0_combout ))))
+
+	.dataa(\U_OLED_driver|state.INIT~q ),
+	.datab(\U_OLED_driver|cnt_init [1]),
+	.datac(\U_OLED_driver|oled_rst~q ),
+	.datad(\U_OLED_driver|Selector350~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector350~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector350~1 .lut_mask = 16'hA072;
+defparam \U_OLED_driver|Selector350~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X11_Y6_N11
+dffeas \U_OLED_driver|oled_rst (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector350~1_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|oled_rst~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|oled_rst .is_wysiwyg = "true";
+defparam \U_OLED_driver|oled_rst .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N22
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector351~0 (
+// Equation(s):
+// \U_OLED_driver|Selector351~0_combout  = (!\U_OLED_driver|cnt_scan [4] & (\U_OLED_driver|cnt_scan [2] $ (\U_OLED_driver|cnt_scan [3])))
+
+	.dataa(\U_OLED_driver|cnt_scan [2]),
+	.datab(\U_OLED_driver|cnt_scan [3]),
+	.datac(gnd),
+	.datad(\U_OLED_driver|cnt_scan [4]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector351~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector351~0 .lut_mask = 16'h0066;
+defparam \U_OLED_driver|Selector351~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N16
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector351~1 (
+// Equation(s):
+// \U_OLED_driver|Selector351~1_combout  = (\U_OLED_driver|cnt_scan [3]) # ((\U_OLED_driver|cnt_scan [4]) # ((\U_OLED_driver|cnt_scan [1] & \U_OLED_driver|cnt_scan [0])))
+
+	.dataa(\U_OLED_driver|cnt_scan [1]),
+	.datab(\U_OLED_driver|cnt_scan [3]),
+	.datac(\U_OLED_driver|cnt_scan [0]),
+	.datad(\U_OLED_driver|cnt_scan [4]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector351~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector351~1 .lut_mask = 16'hFFEC;
+defparam \U_OLED_driver|Selector351~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N26
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector351~2 (
+// Equation(s):
+// \U_OLED_driver|Selector351~2_combout  = (\U_OLED_driver|state.SCAN~q  & ((\U_OLED_driver|Selector351~0_combout ) # ((\U_OLED_driver|oled_dcn~q  & \U_OLED_driver|Selector351~1_combout ))))
+
+	.dataa(\U_OLED_driver|Selector351~0_combout ),
+	.datab(\U_OLED_driver|oled_dcn~q ),
+	.datac(\U_OLED_driver|state.SCAN~q ),
+	.datad(\U_OLED_driver|Selector351~1_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector351~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector351~2 .lut_mask = 16'hE0A0;
+defparam \U_OLED_driver|Selector351~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N4
+fiftyfivenm_lcell_comb \U_OLED_driver|WideOr62 (
+// Equation(s):
+// \U_OLED_driver|WideOr62~combout  = (\U_OLED_driver|state.MAIN~q ) # ((\U_OLED_driver|state.WRITE~q ) # (\U_OLED_driver|state.DELAY~q ))
+
+	.dataa(\U_OLED_driver|state.MAIN~q ),
+	.datab(\U_OLED_driver|state.WRITE~q ),
+	.datac(gnd),
+	.datad(\U_OLED_driver|state.DELAY~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|WideOr62~combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|WideOr62 .lut_mask = 16'hFFEE;
+defparam \U_OLED_driver|WideOr62 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X11_Y6_N26
+fiftyfivenm_lcell_comb \U_OLED_driver|char_reg[5]~0 (
+// Equation(s):
+// \U_OLED_driver|char_reg[5]~0_combout  = (\U_OLED_driver|state.INIT~q  & (((!\U_OLED_driver|LessThan1~4_combout ) # (!\U_OLED_driver|LessThan1~0_combout )) # (!\U_OLED_driver|Selector77~0_combout )))
+
+	.dataa(\U_OLED_driver|state.INIT~q ),
+	.datab(\U_OLED_driver|Selector77~0_combout ),
+	.datac(\U_OLED_driver|LessThan1~0_combout ),
+	.datad(\U_OLED_driver|LessThan1~4_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|char_reg[5]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|char_reg[5]~0 .lut_mask = 16'h2AAA;
+defparam \U_OLED_driver|char_reg[5]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N12
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector351~3 (
+// Equation(s):
+// \U_OLED_driver|Selector351~3_combout  = (\U_OLED_driver|Selector351~2_combout ) # ((\U_OLED_driver|oled_dcn~q  & ((\U_OLED_driver|WideOr62~combout ) # (\U_OLED_driver|char_reg[5]~0_combout ))))
+
+	.dataa(\U_OLED_driver|Selector351~2_combout ),
+	.datab(\U_OLED_driver|WideOr62~combout ),
+	.datac(\U_OLED_driver|oled_dcn~q ),
+	.datad(\U_OLED_driver|char_reg[5]~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector351~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector351~3 .lut_mask = 16'hFAEA;
+defparam \U_OLED_driver|Selector351~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X16_Y6_N13
+dffeas \U_OLED_driver|oled_dcn (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector351~3_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|oled_dcn~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|oled_dcn .is_wysiwyg = "true";
+defparam \U_OLED_driver|oled_dcn .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y5_N6
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector352~0 (
+// Equation(s):
+// \U_OLED_driver|Selector352~0_combout  = (\U_OLED_driver|cnt_write [2]) # ((\U_OLED_driver|cnt_write [3]) # (\U_OLED_driver|cnt_write [1]))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_write [2]),
+	.datac(\U_OLED_driver|cnt_write [3]),
+	.datad(\U_OLED_driver|cnt_write [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector352~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector352~0 .lut_mask = 16'hFFFC;
+defparam \U_OLED_driver|Selector352~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y5_N20
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector352~1 (
+// Equation(s):
+// \U_OLED_driver|Selector352~1_combout  = (\U_OLED_driver|cnt_write [0] & (!\U_OLED_driver|cnt_write [4] & (!\U_OLED_driver|oled_clk~q ))) # (!\U_OLED_driver|cnt_write [0] & (\U_OLED_driver|oled_clk~q  & (\U_OLED_driver|cnt_write [4] $ 
+// (\U_OLED_driver|Selector352~0_combout ))))
+
+	.dataa(\U_OLED_driver|cnt_write [0]),
+	.datab(\U_OLED_driver|cnt_write [4]),
+	.datac(\U_OLED_driver|oled_clk~q ),
+	.datad(\U_OLED_driver|Selector352~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector352~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector352~1 .lut_mask = 16'h1242;
+defparam \U_OLED_driver|Selector352~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y5_N22
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector352~2 (
+// Equation(s):
+// \U_OLED_driver|Selector352~2_combout  = (\U_OLED_driver|state.WRITE~q  & ((\U_OLED_driver|Selector352~1_combout  $ (\U_OLED_driver|oled_clk~q )))) # (!\U_OLED_driver|state.WRITE~q  & (\U_OLED_driver|state.IDLE~q  & ((\U_OLED_driver|oled_clk~q ))))
+
+	.dataa(\U_OLED_driver|state.IDLE~q ),
+	.datab(\U_OLED_driver|Selector352~1_combout ),
+	.datac(\U_OLED_driver|oled_clk~q ),
+	.datad(\U_OLED_driver|state.WRITE~q ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector352~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector352~2 .lut_mask = 16'h3CA0;
+defparam \U_OLED_driver|Selector352~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X16_Y5_N23
+dffeas \U_OLED_driver|oled_clk (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector352~2_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|oled_clk~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|oled_clk .is_wysiwyg = "true";
+defparam \U_OLED_driver|oled_clk .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N22
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector3~0 (
+// Equation(s):
+// \U_OLED_driver|Selector3~0_combout  = (\U_OLED_driver|cnt_main [3]) # ((\U_OLED_driver|cnt_main [2] & ((\U_OLED_driver|cnt_main [0]) # (\U_OLED_driver|cnt_main [1]))))
+
+	.dataa(\U_OLED_driver|cnt_main [3]),
+	.datab(\U_OLED_driver|cnt_main [0]),
+	.datac(\U_OLED_driver|cnt_main [2]),
+	.datad(\U_OLED_driver|cnt_main [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector3~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector3~0 .lut_mask = 16'hFAEA;
+defparam \U_OLED_driver|Selector3~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N12
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector131~0 (
+// Equation(s):
+// \U_OLED_driver|Selector131~0_combout  = (\U_OLED_driver|state.MAIN~q  & (((\U_OLED_driver|WideOr19~0_combout  & !\U_OLED_driver|cnt_main [4])))) # (!\U_OLED_driver|state.MAIN~q  & (!\U_OLED_driver|state.IDLE~q ))
+
+	.dataa(\U_OLED_driver|state.IDLE~q ),
+	.datab(\U_OLED_driver|state.MAIN~q ),
+	.datac(\U_OLED_driver|WideOr19~0_combout ),
+	.datad(\U_OLED_driver|cnt_main [4]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector131~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector131~0 .lut_mask = 16'h11D1;
+defparam \U_OLED_driver|Selector131~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X15_Y5_N23
+dffeas \U_OLED_driver|x_ph[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector3~0_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.MAIN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Selector131~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|x_ph [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|x_ph[0] .is_wysiwyg = "true";
+defparam \U_OLED_driver|x_ph[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N8
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector330~0 (
+// Equation(s):
+// \U_OLED_driver|Selector330~0_combout  = (\U_OLED_driver|state.SCAN~q  & (!\U_OLED_driver|cnt_scan [3] & !\U_OLED_driver|cnt_scan [2]))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|state.SCAN~q ),
+	.datac(\U_OLED_driver|cnt_scan [3]),
+	.datad(\U_OLED_driver|cnt_scan [2]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector330~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector330~0 .lut_mask = 16'h000C;
+defparam \U_OLED_driver|Selector330~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N20
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector330~1 (
+// Equation(s):
+// \U_OLED_driver|Selector330~1_combout  = (\U_OLED_driver|x_ph [0] & (\U_OLED_driver|Selector330~0_combout  & \U_OLED_driver|cnt_scan [1]))
+
+	.dataa(\U_OLED_driver|x_ph [0]),
+	.datab(\U_OLED_driver|Selector330~0_combout ),
+	.datac(gnd),
+	.datad(\U_OLED_driver|cnt_scan [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector330~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector330~1 .lut_mask = 16'h8800;
+defparam \U_OLED_driver|Selector330~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N18
+fiftyfivenm_lcell_comb \U_OLED_driver|char_reg[5]~2 (
+// Equation(s):
+// \U_OLED_driver|char_reg[5]~2_combout  = (!\U_OLED_driver|cnt_scan [4] & ((!\U_OLED_driver|cnt_scan [2]) # (!\U_OLED_driver|cnt_scan [3])))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_scan [4]),
+	.datac(\U_OLED_driver|cnt_scan [3]),
+	.datad(\U_OLED_driver|cnt_scan [2]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|char_reg[5]~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|char_reg[5]~2 .lut_mask = 16'h0333;
+defparam \U_OLED_driver|char_reg[5]~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N14
+fiftyfivenm_lcell_comb \U_OLED_driver|char_reg[5]~3 (
+// Equation(s):
+// \U_OLED_driver|char_reg[5]~3_combout  = (\U_OLED_driver|state.SCAN~q  & (((\U_OLED_driver|char_reg[5]~1_combout  & \U_OLED_driver|Equal0~0_combout )) # (!\U_OLED_driver|char_reg[5]~2_combout )))
+
+	.dataa(\U_OLED_driver|char_reg[5]~1_combout ),
+	.datab(\U_OLED_driver|state.SCAN~q ),
+	.datac(\U_OLED_driver|Equal0~0_combout ),
+	.datad(\U_OLED_driver|char_reg[5]~2_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|char_reg[5]~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|char_reg[5]~3 .lut_mask = 16'h80CC;
+defparam \U_OLED_driver|char_reg[5]~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N0
+fiftyfivenm_lcell_comb \U_OLED_driver|char_reg[5]~4 (
+// Equation(s):
+// \U_OLED_driver|char_reg[5]~4_combout  = (!\U_OLED_driver|WideOr62~combout  & (!\U_OLED_driver|char_reg[5]~3_combout  & !\U_OLED_driver|char_reg[5]~0_combout ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|WideOr62~combout ),
+	.datac(\U_OLED_driver|char_reg[5]~3_combout ),
+	.datad(\U_OLED_driver|char_reg[5]~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|char_reg[5]~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|char_reg[5]~4 .lut_mask = 16'h0003;
+defparam \U_OLED_driver|char_reg[5]~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X16_Y6_N21
+dffeas \U_OLED_driver|char_reg[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector330~1_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\U_OLED_driver|char_reg[5]~4_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|char_reg [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|char_reg[2] .is_wysiwyg = "true";
+defparam \U_OLED_driver|char_reg[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N6
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector357~4 (
+// Equation(s):
+// \U_OLED_driver|Selector357~4_combout  = (!\U_OLED_driver|cnt_main [4] & \U_OLED_driver|WideOr19~0_combout )
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_main [4]),
+	.datac(\U_OLED_driver|WideOr19~0_combout ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector357~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector357~4 .lut_mask = 16'h3030;
+defparam \U_OLED_driver|Selector357~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N24
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector136~0 (
+// Equation(s):
+// \U_OLED_driver|Selector136~0_combout  = (\U_OLED_driver|state.MAIN~q  & (((\U_OLED_driver|x_ph [4]) # (\U_OLED_driver|Selector357~4_combout )))) # (!\U_OLED_driver|state.MAIN~q  & (\U_OLED_driver|state.IDLE~q  & (\U_OLED_driver|x_ph [4])))
+
+	.dataa(\U_OLED_driver|state.MAIN~q ),
+	.datab(\U_OLED_driver|state.IDLE~q ),
+	.datac(\U_OLED_driver|x_ph [4]),
+	.datad(\U_OLED_driver|Selector357~4_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector136~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector136~0 .lut_mask = 16'hEAE0;
+defparam \U_OLED_driver|Selector136~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X15_Y6_N25
+dffeas \U_OLED_driver|x_ph[4] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector136~0_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|x_ph [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|x_ph[4] .is_wysiwyg = "true";
+defparam \U_OLED_driver|x_ph[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N24
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector327~0 (
+// Equation(s):
+// \U_OLED_driver|Selector327~0_combout  = (!\U_OLED_driver|cnt_scan [0] & (\U_OLED_driver|x_ph [4] & (\U_OLED_driver|Selector330~0_combout  & !\U_OLED_driver|cnt_scan [1])))
+
+	.dataa(\U_OLED_driver|cnt_scan [0]),
+	.datab(\U_OLED_driver|x_ph [4]),
+	.datac(\U_OLED_driver|Selector330~0_combout ),
+	.datad(\U_OLED_driver|cnt_scan [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector327~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector327~0 .lut_mask = 16'h0040;
+defparam \U_OLED_driver|Selector327~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X16_Y6_N25
+dffeas \U_OLED_driver|char_reg[5] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector327~0_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\U_OLED_driver|char_reg[5]~4_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|char_reg [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|char_reg[5] .is_wysiwyg = "true";
+defparam \U_OLED_driver|char_reg[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y5_N26
+fiftyfivenm_lcell_comb \U_OLED_driver|Mux15~2 (
+// Equation(s):
+// \U_OLED_driver|Mux15~2_combout  = (\U_OLED_driver|cnt_write [3] & (\U_OLED_driver|cnt_write [1] & (\U_OLED_driver|char_reg [2]))) # (!\U_OLED_driver|cnt_write [3] & (!\U_OLED_driver|cnt_write [1] & ((\U_OLED_driver|char_reg [5]))))
+
+	.dataa(\U_OLED_driver|cnt_write [3]),
+	.datab(\U_OLED_driver|cnt_write [1]),
+	.datac(\U_OLED_driver|char_reg [2]),
+	.datad(\U_OLED_driver|char_reg [5]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Mux15~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Mux15~2 .lut_mask = 16'h9180;
+defparam \U_OLED_driver|Mux15~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N20
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector0~0 (
+// Equation(s):
+// \U_OLED_driver|Selector0~0_combout  = (\U_OLED_driver|cnt_main [3]) # ((\U_OLED_driver|cnt_main [0] & ((\U_OLED_driver|cnt_main [1]))) # (!\U_OLED_driver|cnt_main [0] & (\U_OLED_driver|cnt_main [2] & !\U_OLED_driver|cnt_main [1])))
+
+	.dataa(\U_OLED_driver|cnt_main [3]),
+	.datab(\U_OLED_driver|cnt_main [0]),
+	.datac(\U_OLED_driver|cnt_main [2]),
+	.datad(\U_OLED_driver|cnt_main [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector0~0 .lut_mask = 16'hEEBA;
+defparam \U_OLED_driver|Selector0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X15_Y5_N21
+dffeas \U_OLED_driver|y_p[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector0~0_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.MAIN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Selector131~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|y_p [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|y_p[1] .is_wysiwyg = "true";
+defparam \U_OLED_driver|y_p[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N14
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector331~0 (
+// Equation(s):
+// \U_OLED_driver|Selector331~0_combout  = (!\U_OLED_driver|cnt_scan [0] & (\U_OLED_driver|y_p [1] & (!\U_OLED_driver|cnt_scan [4] & !\U_OLED_driver|cnt_scan [1])))
+
+	.dataa(\U_OLED_driver|cnt_scan [0]),
+	.datab(\U_OLED_driver|y_p [1]),
+	.datac(\U_OLED_driver|cnt_scan [4]),
+	.datad(\U_OLED_driver|cnt_scan [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector331~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector331~0 .lut_mask = 16'h0004;
+defparam \U_OLED_driver|Selector331~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N0
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector331~1 (
+// Equation(s):
+// \U_OLED_driver|Selector331~1_combout  = (\U_OLED_driver|char_reg[5]~1_combout  & ((\U_OLED_driver|Selector331~0_combout ) # ((\U_OLED_driver|char_reg [1] & \U_OLED_driver|Equal0~0_combout ))))
+
+	.dataa(\U_OLED_driver|char_reg[5]~1_combout ),
+	.datab(\U_OLED_driver|Selector331~0_combout ),
+	.datac(\U_OLED_driver|char_reg [1]),
+	.datad(\U_OLED_driver|Equal0~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector331~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector331~1 .lut_mask = 16'hA888;
+defparam \U_OLED_driver|Selector331~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N2
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector331~2 (
+// Equation(s):
+// \U_OLED_driver|Selector331~2_combout  = (\U_OLED_driver|state.SCAN~q  & ((\U_OLED_driver|Selector331~1_combout ) # ((\U_OLED_driver|char_reg [1] & !\U_OLED_driver|char_reg[5]~2_combout ))))
+
+	.dataa(\U_OLED_driver|state.SCAN~q ),
+	.datab(\U_OLED_driver|char_reg [1]),
+	.datac(\U_OLED_driver|Selector331~1_combout ),
+	.datad(\U_OLED_driver|char_reg[5]~2_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector331~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector331~2 .lut_mask = 16'hA0A8;
+defparam \U_OLED_driver|Selector331~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y6_N8
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector331~3 (
+// Equation(s):
+// \U_OLED_driver|Selector331~3_combout  = (\U_OLED_driver|Selector331~2_combout ) # ((\U_OLED_driver|char_reg [1] & ((\U_OLED_driver|WideOr62~combout ) # (\U_OLED_driver|char_reg[5]~0_combout ))))
+
+	.dataa(\U_OLED_driver|WideOr62~combout ),
+	.datab(\U_OLED_driver|Selector331~2_combout ),
+	.datac(\U_OLED_driver|char_reg [1]),
+	.datad(\U_OLED_driver|char_reg[5]~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector331~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector331~3 .lut_mask = 16'hFCEC;
+defparam \U_OLED_driver|Selector331~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X15_Y6_N9
+dffeas \U_OLED_driver|char_reg[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector331~3_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|char_reg [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|char_reg[1] .is_wysiwyg = "true";
+defparam \U_OLED_driver|char_reg[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N10
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector332~3 (
+// Equation(s):
+// \U_OLED_driver|Selector332~3_combout  = (\U_OLED_driver|char_reg [0] & ((\U_OLED_driver|WideOr62~combout ) # ((\U_OLED_driver|state.SCAN~q  & !\U_OLED_driver|char_reg[5]~2_combout ))))
+
+	.dataa(\U_OLED_driver|char_reg [0]),
+	.datab(\U_OLED_driver|state.SCAN~q ),
+	.datac(\U_OLED_driver|WideOr62~combout ),
+	.datad(\U_OLED_driver|char_reg[5]~2_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector332~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector332~3 .lut_mask = 16'hA0A8;
+defparam \U_OLED_driver|Selector332~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X15_Y5_N16
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector1~0 (
+// Equation(s):
+// \U_OLED_driver|Selector1~0_combout  = (\U_OLED_driver|cnt_main [3]) # ((!\U_OLED_driver|cnt_main [0] & ((\U_OLED_driver|cnt_main [2]) # (\U_OLED_driver|cnt_main [1]))))
+
+	.dataa(\U_OLED_driver|cnt_main [3]),
+	.datab(\U_OLED_driver|cnt_main [0]),
+	.datac(\U_OLED_driver|cnt_main [2]),
+	.datad(\U_OLED_driver|cnt_main [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector1~0 .lut_mask = 16'hBBBA;
+defparam \U_OLED_driver|Selector1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X15_Y5_N17
+dffeas \U_OLED_driver|y_p[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector1~0_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.MAIN~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|Selector131~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|y_p [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|y_p[0] .is_wysiwyg = "true";
+defparam \U_OLED_driver|y_p[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N2
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector332~1 (
+// Equation(s):
+// \U_OLED_driver|Selector332~1_combout  = (\U_OLED_driver|Selector332~0_combout  & ((\U_OLED_driver|cnt_scan [1] & (\U_OLED_driver|x_ph [0])) # (!\U_OLED_driver|cnt_scan [1] & ((\U_OLED_driver|y_p [0])))))
+
+	.dataa(\U_OLED_driver|x_ph [0]),
+	.datab(\U_OLED_driver|y_p [0]),
+	.datac(\U_OLED_driver|cnt_scan [1]),
+	.datad(\U_OLED_driver|Selector332~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector332~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector332~1 .lut_mask = 16'hAC00;
+defparam \U_OLED_driver|Selector332~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N28
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector332~2 (
+// Equation(s):
+// \U_OLED_driver|Selector332~2_combout  = (\U_OLED_driver|Selector330~0_combout  & ((\U_OLED_driver|Selector332~1_combout ) # ((\U_OLED_driver|char_reg [0] & \U_OLED_driver|Equal0~0_combout ))))
+
+	.dataa(\U_OLED_driver|char_reg [0]),
+	.datab(\U_OLED_driver|Selector330~0_combout ),
+	.datac(\U_OLED_driver|Equal0~0_combout ),
+	.datad(\U_OLED_driver|Selector332~1_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector332~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector332~2 .lut_mask = 16'hCC80;
+defparam \U_OLED_driver|Selector332~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N6
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector332~4 (
+// Equation(s):
+// \U_OLED_driver|Selector332~4_combout  = (\U_OLED_driver|Selector332~3_combout ) # ((\U_OLED_driver|Selector332~2_combout ) # ((\U_OLED_driver|char_reg [0] & \U_OLED_driver|char_reg[5]~0_combout )))
+
+	.dataa(\U_OLED_driver|Selector332~3_combout ),
+	.datab(\U_OLED_driver|Selector332~2_combout ),
+	.datac(\U_OLED_driver|char_reg [0]),
+	.datad(\U_OLED_driver|char_reg[5]~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector332~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector332~4 .lut_mask = 16'hFEEE;
+defparam \U_OLED_driver|Selector332~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X16_Y6_N7
+dffeas \U_OLED_driver|char_reg[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector332~4_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|char_reg [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|char_reg[0] .is_wysiwyg = "true";
+defparam \U_OLED_driver|char_reg[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y6_N30
+fiftyfivenm_lcell_comb \U_OLED_driver|Selector328~0 (
+// Equation(s):
+// \U_OLED_driver|Selector328~0_combout  = (\U_OLED_driver|x_ph [4] & (\U_OLED_driver|Selector330~0_combout  & ((\U_OLED_driver|cnt_scan [1]) # (!\U_OLED_driver|cnt_scan [0]))))
+
+	.dataa(\U_OLED_driver|cnt_scan [0]),
+	.datab(\U_OLED_driver|x_ph [4]),
+	.datac(\U_OLED_driver|Selector330~0_combout ),
+	.datad(\U_OLED_driver|cnt_scan [1]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Selector328~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Selector328~0 .lut_mask = 16'hC040;
+defparam \U_OLED_driver|Selector328~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X16_Y6_N31
+dffeas \U_OLED_driver|char_reg[4] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Selector328~0_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\U_OLED_driver|char_reg[5]~4_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|char_reg [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|char_reg[4] .is_wysiwyg = "true";
+defparam \U_OLED_driver|char_reg[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y5_N2
+fiftyfivenm_lcell_comb \U_OLED_driver|Mux15~0 (
+// Equation(s):
+// \U_OLED_driver|Mux15~0_combout  = (\U_OLED_driver|cnt_write [1] & ((\U_OLED_driver|char_reg [4]) # ((\U_OLED_driver|cnt_write [3])))) # (!\U_OLED_driver|cnt_write [1] & (((!\U_OLED_driver|cnt_write [3] & \U_OLED_driver|char_reg [5]))))
+
+	.dataa(\U_OLED_driver|char_reg [4]),
+	.datab(\U_OLED_driver|cnt_write [1]),
+	.datac(\U_OLED_driver|cnt_write [3]),
+	.datad(\U_OLED_driver|char_reg [5]),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Mux15~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Mux15~0 .lut_mask = 16'hCBC8;
+defparam \U_OLED_driver|Mux15~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y5_N12
+fiftyfivenm_lcell_comb \U_OLED_driver|Mux15~1 (
+// Equation(s):
+// \U_OLED_driver|Mux15~1_combout  = (\U_OLED_driver|cnt_write [3] & ((\U_OLED_driver|Mux15~0_combout  & ((\U_OLED_driver|char_reg [0]))) # (!\U_OLED_driver|Mux15~0_combout  & (\U_OLED_driver|char_reg [1])))) # (!\U_OLED_driver|cnt_write [3] & 
+// (((\U_OLED_driver|Mux15~0_combout ))))
+
+	.dataa(\U_OLED_driver|cnt_write [3]),
+	.datab(\U_OLED_driver|char_reg [1]),
+	.datac(\U_OLED_driver|char_reg [0]),
+	.datad(\U_OLED_driver|Mux15~0_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Mux15~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Mux15~1 .lut_mask = 16'hF588;
+defparam \U_OLED_driver|Mux15~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X16_Y5_N16
+fiftyfivenm_lcell_comb \U_OLED_driver|Mux15~3 (
+// Equation(s):
+// \U_OLED_driver|Mux15~3_combout  = (\U_OLED_driver|cnt_write [2] & ((\U_OLED_driver|Mux15~1_combout ))) # (!\U_OLED_driver|cnt_write [2] & (\U_OLED_driver|Mux15~2_combout ))
+
+	.dataa(gnd),
+	.datab(\U_OLED_driver|cnt_write [2]),
+	.datac(\U_OLED_driver|Mux15~2_combout ),
+	.datad(\U_OLED_driver|Mux15~1_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Mux15~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Mux15~3 .lut_mask = 16'hFC30;
+defparam \U_OLED_driver|Mux15~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y5_N24
+fiftyfivenm_lcell_comb \U_OLED_driver|Mux15~4 (
+// Equation(s):
+// \U_OLED_driver|Mux15~4_combout  = (\U_OLED_driver|cnt_write [4] & (((\U_OLED_driver|oled_dat~q )))) # (!\U_OLED_driver|cnt_write [4] & ((\U_OLED_driver|cnt_write [0] & ((\U_OLED_driver|Mux15~3_combout ))) # (!\U_OLED_driver|cnt_write [0] & 
+// (\U_OLED_driver|oled_dat~q ))))
+
+	.dataa(\U_OLED_driver|cnt_write [4]),
+	.datab(\U_OLED_driver|cnt_write [0]),
+	.datac(\U_OLED_driver|oled_dat~q ),
+	.datad(\U_OLED_driver|Mux15~3_combout ),
+	.cin(gnd),
+	.combout(\U_OLED_driver|Mux15~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \U_OLED_driver|Mux15~4 .lut_mask = 16'hF4B0;
+defparam \U_OLED_driver|Mux15~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X12_Y5_N25
+dffeas \U_OLED_driver|oled_dat (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\U_OLED_driver|Mux15~4_combout ),
+	.asdata(vcc),
+	.clrn(\rst_n~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(!\U_OLED_driver|state.WRITE~q ),
+	.sload(gnd),
+	.ena(\U_OLED_driver|WideOr60~0_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\U_OLED_driver|oled_dat~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \U_OLED_driver|oled_dat .is_wysiwyg = "true";
+defparam \U_OLED_driver|oled_dat .power_up = "low";
+// synopsys translate_on
+
+// Location: UNVM_X0_Y8_N40
+fiftyfivenm_unvm \~QUARTUS_CREATED_UNVM~ (
+	.arclk(vcc),
+	.arshft(vcc),
+	.drclk(vcc),
+	.drshft(vcc),
+	.drdin(vcc),
+	.nprogram(vcc),
+	.nerase(vcc),
+	.nosc_ena(\~QUARTUS_CREATED_GND~I_combout ),
+	.par_en(vcc),
+	.xe_ye(vcc),
+	.se(vcc),
+	.ardin(23'b11111111111111111111111),
+	.busy(\~QUARTUS_CREATED_UNVM~~busy ),
+	.osc(),
+	.bgpbusy(),
+	.sp_pass(),
+	.se_pass(),
+	.drdout());
+// synopsys translate_off
+defparam \~QUARTUS_CREATED_UNVM~ .addr_range1_end_addr = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .addr_range1_offset = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .addr_range2_offset = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .is_compressed_image = "false";
+defparam \~QUARTUS_CREATED_UNVM~ .is_dual_boot = "false";
+defparam \~QUARTUS_CREATED_UNVM~ .is_eram_skip = "false";
+defparam \~QUARTUS_CREATED_UNVM~ .max_ufm_valid_addr = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .max_valid_addr = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .min_ufm_valid_addr = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .min_valid_addr = -1;
+defparam \~QUARTUS_CREATED_UNVM~ .part_name = "quartus_created_unvm";
+defparam \~QUARTUS_CREATED_UNVM~ .reserve_block = "true";
+// synopsys translate_on
+
+assign oled_csn = \oled_csn~output_o ;
+
+assign oled_rst = \oled_rst~output_o ;
+
+assign oled_dcn = \oled_dcn~output_o ;
+
+assign oled_clk = \oled_clk~output_o ;
+
+assign oled_dat = \oled_dat~output_o ;
+
+endmodule
+
+module hard_block (
+
+	devpor,
+	devclrn,
+	devoe);
+
+// Design Ports Information
+// ~ALTERA_TMS~	=>  Location: PIN_G1,	 I/O Standard: 2.5 V Schmitt Trigger,	 Current Strength: Default
+// ~ALTERA_TCK~	=>  Location: PIN_J1,	 I/O Standard: 2.5 V Schmitt Trigger,	 Current Strength: Default
+// ~ALTERA_TDI~	=>  Location: PIN_H5,	 I/O Standard: 2.5 V Schmitt Trigger,	 Current Strength: Default
+// ~ALTERA_TDO~	=>  Location: PIN_H4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_CONFIG_SEL~	=>  Location: PIN_D8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_nCONFIG~	=>  Location: PIN_E8,	 I/O Standard: 2.5 V Schmitt Trigger,	 Current Strength: Default
+// ~ALTERA_nSTATUS~	=>  Location: PIN_D6,	 I/O Standard: 2.5 V Schmitt Trigger,	 Current Strength: Default
+// ~ALTERA_CONF_DONE~	=>  Location: PIN_E6,	 I/O Standard: 2.5 V Schmitt Trigger,	 Current Strength: Default
+
+input 	devpor;
+input 	devclrn;
+input 	devoe;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+wire \~ALTERA_TMS~~padout ;
+wire \~ALTERA_TCK~~padout ;
+wire \~ALTERA_TDI~~padout ;
+wire \~ALTERA_CONFIG_SEL~~padout ;
+wire \~ALTERA_nCONFIG~~padout ;
+wire \~ALTERA_nSTATUS~~padout ;
+wire \~ALTERA_CONF_DONE~~padout ;
+wire \~ALTERA_TMS~~ibuf_o ;
+wire \~ALTERA_TCK~~ibuf_o ;
+wire \~ALTERA_TDI~~ibuf_o ;
+wire \~ALTERA_CONFIG_SEL~~ibuf_o ;
+wire \~ALTERA_nCONFIG~~ibuf_o ;
+wire \~ALTERA_nSTATUS~~ibuf_o ;
+wire \~ALTERA_CONF_DONE~~ibuf_o ;
+
+
+endmodule

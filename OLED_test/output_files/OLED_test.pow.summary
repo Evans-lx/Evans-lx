@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Mon Mar 06 10:35:15 2023
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : OLED_test
+Top-level Entity Name : OLED_test
+Family : MAX 10
+Device : 10M02SCM153C8G
+Power Models : Final
+Total Thermal Power Dissipation : 72.26 mW
+Core Dynamic Thermal Power Dissipation : 0.00 mW
+Core Static Thermal Power Dissipation : 66.79 mW
+I/O Thermal Power Dissipation : 5.48 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

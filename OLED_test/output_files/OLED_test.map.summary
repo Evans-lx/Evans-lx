@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Mon Mar 06 10:34:44 2023
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : OLED_test
+Top-level Entity Name : OLED_test
+Family : MAX 10
+Total logic elements : 176
+    Total combinational functions : 176
+    Dedicated logic registers : 62
+Total registers : 62
+Total pins : 7
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

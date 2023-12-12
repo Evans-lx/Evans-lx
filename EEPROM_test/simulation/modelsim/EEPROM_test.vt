@@ -1,0 +1,70 @@
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench template that is freely editable to  
+// suit user's needs .Comments are provided in each section to help the user    
+// fill out necessary details.                                                  
+// *****************************************************************************
+// Generated on "02/22/2023 17:25:01"
+                                                                                
+// Verilog Test Bench template for design : EEPROM_test
+// 
+// Simulation tool : ModelSim (Verilog)
+// 
+
+`timescale 1 ns/ 1 ns
+module tb_EEPROM_test();
+// constants                                           
+// general purpose registers
+reg eachvec;
+// test vector input registers
+reg clk;
+reg rst_n;
+// wires                                               
+wire i2c_scl;
+wire i2c_sda;
+wire [8:0]  seg_1;
+wire [8:0]  seg_2;
+
+// assign statements (if any)                          
+assign i2c_sda = treg_i2c_sda;
+EEPROM_test i1 (
+// port map - connection between master ports and signals/registers   
+	.clk(clk),
+	.i2c_scl(i2c_scl),
+	.i2c_sda(i2c_sda),
+	.rst_n(rst_n),
+	.seg_1(seg_1),
+	.seg_2(seg_2)
+);
+initial                                                
+begin                                                  
+	sys_clk = 1'b0; 
+	sys_rst_n = 1'b0;
+	#200  //延时200ns
+	sys_rst_n = 1'b1;                                               
+end                                                    
+always #10 sys_clk = ~sys_clk;                                                
+// optional sensitivity list                           
+// @(event1 or event2 or .... eventn)                  
+begin                                                  
+// code executes for every event on sensitivity list   
+// insert code here --> begin                          
+                                                       
+@eachvec;                                              
+// --> end                                             
+end                                                    
+endmodule
+

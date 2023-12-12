@@ -1,0 +1,28 @@
+|ADDA_test
+clk => dac_clk_out.DATAIN
+clk => adc_clk_out.DATAIN
+rst_n => ~NO_FANOUT~
+adc_data[0] => dac_data[0].DATAIN
+adc_data[1] => dac_data[1].DATAIN
+adc_data[2] => dac_data[2].DATAIN
+adc_data[3] => dac_data[3].DATAIN
+adc_data[4] => dac_data[4].DATAIN
+adc_data[5] => dac_data[5].DATAIN
+adc_data[6] => dac_data[6].DATAIN
+adc_data[7] => dac_data[7].DATAIN
+adc_data[8] => dac_data[8].DATAIN
+adc_data[9] => dac_data[9].DATAIN
+dac_data[0] <= adc_data[0].DB_MAX_OUTPUT_PORT_TYPE
+dac_data[1] <= adc_data[1].DB_MAX_OUTPUT_PORT_TYPE
+dac_data[2] <= adc_data[2].DB_MAX_OUTPUT_PORT_TYPE
+dac_data[3] <= adc_data[3].DB_MAX_OUTPUT_PORT_TYPE
+dac_data[4] <= adc_data[4].DB_MAX_OUTPUT_PORT_TYPE
+dac_data[5] <= adc_data[5].DB_MAX_OUTPUT_PORT_TYPE
+dac_data[6] <= adc_data[6].DB_MAX_OUTPUT_PORT_TYPE
+dac_data[7] <= adc_data[7].DB_MAX_OUTPUT_PORT_TYPE
+dac_data[8] <= adc_data[8].DB_MAX_OUTPUT_PORT_TYPE
+dac_data[9] <= adc_data[9].DB_MAX_OUTPUT_PORT_TYPE
+adc_clk_out <= clk.DB_MAX_OUTPUT_PORT_TYPE
+dac_clk_out <= clk.DB_MAX_OUTPUT_PORT_TYPE
+
+

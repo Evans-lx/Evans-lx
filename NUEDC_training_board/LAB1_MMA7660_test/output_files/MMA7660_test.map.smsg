@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at MMA7660_driver.v(42): object "ACK" differs only in case from object "ack" in the same scope File: D:/WORK/new/MMA7660_test/MMA7660_driver.v Line: 42
+Info (10281): Verilog HDL Declaration information at OLED_driver.v(27): object "CMD" differs only in case from object "cmd" in the same scope File: D:/WORK/new/MMA7660_test/OLED_driver.v Line: 27

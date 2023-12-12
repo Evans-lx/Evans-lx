@@ -1,0 +1,16 @@
+module ADDC_test
+(
+	input clk,
+	input rst_n,
+	output reg [9:0] dac_data,  //dac数据
+	input  [9:0] adc_data,
+	output adc_clk_out,
+	output dac_clk_out
+);
+assign adc_clk_out = clk;
+assign dac_clk_out = clk;
+always @(posedge clk or negedge rst_n)
+	begin
+		dac_data <= adc_data;
+	end
+endmodule

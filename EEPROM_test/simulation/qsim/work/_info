@@ -1,0 +1,75 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/intelFPGA_lite/18.1/EEPROM_test/simulation/qsim
+vEEPROM_test
+Z1 !s110 1677056721
+!i10b 1
+!s100 cWQbF;^;46finzW_dL9PU0
+I46:`oQAmLGk9`mh@5Fa6c2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1677056717
+Z4 8EEPROM_test.vo
+Z5 FEEPROM_test.vo
+L0 31
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1677056719.000000
+Z8 !s107 EEPROM_test.vo|
+Z9 !s90 -work|work|EEPROM_test.vo|
+!i113 1
+Z10 o-work work
+Z11 tCvgOpt 0
+n@e@e@p@r@o@m_test
+vEEPROM_test_vlg_vec_tst
+R1
+!i10b 1
+!s100 ho`llKZ9gAYO3na24ioR[2
+ICRiEljBO:SHEd^Z^k3]SX1
+R2
+R0
+w1677056713
+8Waveform.vwf.vt
+FWaveform.vwf.vt
+L0 29
+R6
+r1
+!s85 0
+31
+!s108 1677056721.000000
+!s107 Waveform.vwf.vt|
+!s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R10
+R11
+n@e@e@p@r@o@m_test_vlg_vec_tst
+vhard_block
+R1
+!i10b 1
+!s100 2gJGLPZWXj439mH=[lRd<3
+IV02R6Ag9Mj<hoaX]S0]]Z0
+R2
+R0
+R3
+R4
+R5
+L0 6924
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11

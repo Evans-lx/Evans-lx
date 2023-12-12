@@ -1,0 +1,18 @@
+Fitter Status : Successful - Mon Mar 06 10:35:00 2023
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : OLED_test
+Top-level Entity Name : OLED_test
+Family : MAX 10
+Device : 10M02SCM153C8G
+Timing Models : Final
+Total logic elements : 180 / 2,304 ( 8 % )
+    Total combinational functions : 177 / 2,304 ( 8 % )
+    Dedicated logic registers : 62 / 2,304 ( 3 % )
+Total registers : 62
+Total pins : 7 / 112 ( 6 % )
+Total virtual pins : 0
+Total memory bits : 0 / 110,592 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 32 ( 0 % )
+Total PLLs : 0 / 1 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0
